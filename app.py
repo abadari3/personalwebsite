@@ -14,6 +14,7 @@ class Todo(db.Model):
     def __repr__(self):
         return '<Task %>' % self.id
 
+# This is for my Personal Website.
 
 @app.route('/')
 def index():
