@@ -1,18 +1,19 @@
 from flask import Flask, render_template, url_for, request, redirect
-from flask_sqlalchemy import SQLAlchemy
-from datetime import datetime
+from models import *
 
 app = Flask(__name__)
-app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///tasks.db'
-db = SQLAlchemy(app)
 
-class Todo(db.Model):
-    id = db.Column(db.Integer, primary_key=True)
-    content = db.Column(db.String(200), nullable = False)
-    date = db.Column(db.DateTime, default=datetime.utcnow)
+POSTGRES = {
+    'user': 'postgres',
+    'pw': 'ananbada1234',
+    'db': 'things',
+    'host': 'localhost',
+    'port': '5432',
+}
 
-    def __repr__(self):
-        return '<Task %>' % self.id
+app.config['SQLALCHEMY_DATABASE_URI'] = 'postgresql://%(user)s:\
+%(pw)s@%(host)s:%(port)s/%(db)s' % POSTGRES
+db.init_app(app)
 
 # This is for my Personal Website.
 
