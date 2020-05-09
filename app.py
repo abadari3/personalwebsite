@@ -3,18 +3,8 @@ from models import *
 
 app = Flask(__name__)
 
-# POSTGRES = {
-#     'user': 'postgres',
-#     'pw': 'ananbada1234',
-#     'db': 'things',
-#     'host': 'localhost',
-#     'port': '5432',
-# }
-
 app.config['SQLALCHEMY_DATABASE_URI'] = 'postgres://mnzmkqtiibjkns:93a26a7d22fb5c2918113f23c8423e1bbff5ec2bfe328e8a6334b5b81c79558c@ec2-52-70-15-120.compute-1.amazonaws.com:5432/d95d2r0uani23p'
 db.init_app(app)
-
-# This is for my Personal Website.
 
 @app.route('/')
 def index():
