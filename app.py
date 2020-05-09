@@ -2,12 +2,12 @@ from flask import Flask, render_template, url_for, request, redirect
 from flask_sqlalchemy import SQLAlchemy
 from datetime import datetime
 
-from flask_heroku import Heroku
+# from flask_heroku import Heroku
 
 app = Flask(__name__)
 app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
 db = SQLAlchemy(app)
-heroku = Heroku(app)
+# heroku = Heroku(app)
 
 class Todo(db.Model):
     __tablename__ = "tasks"
