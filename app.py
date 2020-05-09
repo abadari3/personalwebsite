@@ -18,8 +18,28 @@ class Todo(db.Model):
 
 @app.route('/')
 def index():
-    # return render_template('index.html')
-    return render_template('todo.html')
+    # return beta()
+    return todo()
+
+@app.route('/beta')
+def beta():
+    return render_template('index.html')
+
+@app.route('/resume')
+def resume():
+    return render_template('resume.html')
+
+@app.route('/projects')
+def projects():
+    return render_template('projects.html')
+
+@app.route('/blog')
+def blog():
+    return render_template('blog.html')
+
+@app.route('/about')
+def about():
+    return render_template('about.html')
 
 @app.route('/todo', methods=['POST', 'GET'])
 def todo():
