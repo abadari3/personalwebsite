@@ -12,7 +12,8 @@ body, html {
     list-style-type: none;
     margin: 0;
     padding: 0;
-    width: 25%;
+    width: 10%;
+    min-width: 105px;
     background-color: #151206;
     position: fixed;
     height: 100%;
@@ -34,4 +35,11 @@ body, html {
   li a:hover:not(.active) {
     background-color: rgb(243, 221, 157);
     color: black;
+  }
+
+  div.content{
+    margin-left:20%;
+    margin-right:15%;
+    padding:30px 16px;
+    height: 1000px;
   }
