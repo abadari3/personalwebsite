@@ -10,6 +10,7 @@ body, html {
   
   ul {
     list-style-type: none;
+    text-align: center;
     margin: 0;
     padding: 0;
     width: 10%;
@@ -38,7 +39,7 @@ body, html {
   }
 
   div.content{
-    margin-left:20%;
+    margin-left:5%;
     margin-right:15%;
     padding:30px 16px;
     height: 1000px;
