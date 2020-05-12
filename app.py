@@ -10,12 +10,13 @@ db.init_app(app)
 
 @app.route('/')
 def index():
-    return beta()
     # return todo()
+    return render_template('index.html')
 
 @app.route('/beta')
 def beta():
-    return render_template('index.html')
+    return redirect('/')
+    # return render_template('index.html')
 
 @app.route('/resume')
 def resume():
