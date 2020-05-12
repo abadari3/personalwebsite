@@ -3,7 +3,8 @@ from models import *
 
 app = Flask(__name__)
 
-app.config['SQLALCHEMY_DATABASE_URI'] = 'postgres://mrmsichqwewyap:4d5a1ad77222589582d045522e8da623acb9fc6d5cdae4bb75b0001bcf090774@ec2-52-200-48-116.compute-1.amazonaws.com:5432/dalkh4p3a43t7j'
+app.config['SQLALCHEMY_DATABASE_URI'] = 'postgres://hhmpclxwofmqqc:4bed57c46962a84974295d5523c38a7a32e25f98ab4c977939e2156b6553ab77@ec2-52-6-143-153.compute-1.amazonaws.com:5432/d9pjc4028jgbt'
+app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
 db.init_app(app)
 
 @app.route('/')
