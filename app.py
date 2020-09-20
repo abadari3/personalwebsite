@@ -11,11 +11,19 @@ db.init_app(app)
 @app.route('/')
 def index():
     # return todo()
+    return redirect("https://www.linkedin.com/in/anandabadari/")
+    # return render_template('index.html')
+
+@app.route('/home')
+def home():
+    # return todo()
+    # return redirect("https://www.linkedin.com/in/anandabadari/")
     return render_template('index.html')
+
 
 @app.route('/beta')
 def beta():
-    return redirect('/')
+    return redirect('/home')
     # return render_template('index.html')
 
 @app.route('/resume')
