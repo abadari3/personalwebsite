@@ -18,6 +18,12 @@ def index():
 def home():
     # return todo()
     # return redirect("https://www.linkedin.com/in/anandabadari/")
+    return render_template('index2.html')
+
+@app.route('/cvproject')
+def cvproject():
+    # return todo()
+    # return redirect("https://www.linkedin.com/in/anandabadari/")
     return render_template('index.html')
 
 
