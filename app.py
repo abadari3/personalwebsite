@@ -17,14 +17,17 @@ def index():
 @app.route('/home')
 def home():
     # return todo()
-    # return redirect("https://www.linkedin.com/in/anandabadari/")
-    return render_template('index2.html')
+    return render_template('index.html')
 
 @app.route('/cvproject')
 def cvproject():
     # return todo()
-    # return redirect("https://www.linkedin.com/in/anandabadari/")
-    return render_template('index.html')
+    return render_template('cvproject.html')
+
+@app.route('/mlproject')
+def mlproject():
+    # return todo()
+    return render_template('mlproject.html')
 
 
 @app.route('/beta')
