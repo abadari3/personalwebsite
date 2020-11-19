@@ -15,3 +15,15 @@ function gestureStart() {
     }
   }
 }
+function toggleCollapsibleSectionWithAnimation() {
+  this.classList.toggle("collapsible-active");
+  var buttonId = this.id;
+  var sectionId = buttonId.replace("button","section");
+  var content = document.getElementById(sectionId);
+  var mHeight = window.getComputedStyle(content).maxHeight;
+  if (mHeight !== "0px"){
+    content.style.maxHeight = "0px";
+  } else {
+    content.style.maxHeight = "100%";
+  }
+}
