@@ -1,0 +1,227 @@
+{% extends 'base.html' %}
+
+{% block head %}
+    <title>Automatic Speed Detection from Dashcam Video</title>
+{% endblock %}
+
+{% block header %}
+    <h1><a class="home" href="index.html">Automatic Speed Detection from Dashcam Video</a></h1>
+    <hr>
+    <h3>CS 4476: Computer Vision</h3>
+    <p>Ananda Badari<br>
+    Evan Juncal<br>
+    Kevin Park<br>
+    Rohit Ramakrishnan</p>
+    <hr>
+    <div align='center'>
+    <a href="proposal.html">Project Proposal</a><br>
+    <a href="midtermupdate.html">Midterm Update</a><br>
+    <a class="disabled" href="finalupdate.html">Final Update</a>
+    </div>
+    <br>
+    <hr>
+    <img src="https://www.roboticsbusinessreview.com/wp-content/uploads/2019/08/AdobeStock_222100885.jpeg">
+
+    <img src="https://i.pinimg.com/originals/ed/d3/3f/edd33f73975cbf964c863990f514247d.jpg">
+
+    <img src="https://geospatialmedia.s3.amazonaws.com/wp-content/uploads/2017/08/LiDAR_detection-matrix_%C2%A9LeddarTech.jpg">
+
+    <p class="view"><a href="https://github.gatech.edu/abadari3/Automatic-Speed-Detection-from-Dashcam-Video">View the Project on GitHub <small>Automatic Speed Detection from Dashcam Video</small></a></p>
+{% endblock %}
+
+{% block body %}
+<h1 align='center'>Midterm Update</h1>
+
+<button class="collapsible" id="collapsible-button-0" onclick="toggleCollapsibleSectionWithAnimation.call(this)"><h3>Abstract</h3></button>
+<div class="collapsible-content" id="collapsible-section-0">
+  <p>
+    We aim to train and test a supervised learning model that estimates the real-world speed of a vehicle given its dashcam video. This is an attempt at solving the <a target="_blank" href="https://github.com/commaai/speedchallenge">comma.ai programming challenge</a>. Our general approach is to create an Optical Flow map and then use a variation of the NVIDIA CNN to estimate speeds based on the optical flows. We are using SIFT to create a lane-detector for each frame in the data set, to construct a sparse optical flow map by comparing positions of the lanes. Additionally, we are also using the Farneback method to estimate the direction and speed of each pixel between images by creating a dense optical flow map. In this midterm update, we developed the preprocessing and optical-flow portions of our model, and have a preliminary implementation of the CNN. We were successfully able to implement a SIFT-based lane-detector and a Farneback Dense Optical Flow Map. 
+  </p>
+
+  <figure>
+    <img src="https://raw.githubusercontent.com/abadari3/anandabadari.com/master/images/midtermteaser2.png" style="width:100%">
+    <figcaption>The Two Types of Preprocessing and Optical Flow.</figcaption>
+  </figure><br>
+  <hr>
+</div>
+
+
+<button class="collapsible" id="collapsible-button-1" onclick="toggleCollapsibleSectionWithAnimation.call(this)"><h3>Introduction</h3></button>
+<div class="collapsible-content" id="collapsible-section-1">
+  <p>
+    Finding the speed from a dashcam camera has important applications in autonomous vehicles, from self-driving cars to drones. For our specific problem, given a dashcam video of a car, we want to assign each frame with the approximate instantaneous speed during that frame. Our input domain are dashcam videos from a car or other road-based vehicle, specifically 20fps 640x480 video in this case, and our expected output is the instantaneous speed for each frame of the video. 
+
+    <br><br>
+
+    We are using two different ways of computing an optical map, using SIFT for a sparse optical map and using Farneback method for a dense optical map. Then, we can run this information from the optical maps through the NVIDIA self-driving CNN to estimate speeds given any dashcam video. We can compare performance between the two optical maps, and combine them to make a more robust model.
+  </p>
+  <hr>
+</div>
+
+<button class="collapsible" id="collapsible-button-2" onclick="toggleCollapsibleSectionWithAnimation.call(this)"><h3>Approach</h3></button>
+<div class="collapsible-content" id="collapsible-section-2">
+  
+  <p>
+    <button class="collapsible" id="collapsible-button-20" onclick="toggleCollapsibleSectionWithAnimation.call(this)"><strong>SIFT, Lane Detection, Homography</strong></button>
+    <div class="collapsible-content" id="collapsible-section-20">            
+      The approach of this method is to use SIFT to retrieve and match keypoints between each frame, then use homography calculation to figure out the scaling (“zoom in”) factor, which can be used to correlate it with the speed of the vehicle.<br>
+      However, there was one major issue where many of the keypoints returned by SIFT are pinned on other vehicles on the road. This disrupts accurate homography calculation because other vehicles are traveling at a similar speed which makes them look “stationary”. To resolve this issue, we implemented lane detection to filter out the SIFT keypoints to road markings.
+      <br><br>
+    </div>
+
+    <button class="collapsible" id="collapsible-button-21" onclick="toggleCollapsibleSectionWithAnimation.call(this)"><strong>Dense Optical Map</strong></button>
+    <div class="collapsible-content" id="collapsible-section-21">            
+      <br>
+      The first thing that we did is to convert the training dataset (train.mp4) into individual frames, and save them as images for easier access and manipulation. Then, for preprocessing the images, we grayscaled and cropped out the top and bottom of the images, to get rid of the dashboard or any static car-items from the frame, and got rid of the sky to remove irrelevant data that will confuse the CNN. Then, we ran a canny edge detector on the preprocessed images to isolate edges to help match up different consecutive frames. Then, we can utilize the Farneback Dense Optical Flow algorithm on the images, with the canny edges detected, to construct a dense optical flow map.
+      <br>
+    </div>
+
+    <button class="collapsible" id="collapsible-button-22" onclick="toggleCollapsibleSectionWithAnimation.call(this)"><strong><br>CNN</strong><br></button>
+    <div class="collapsible-content" id="collapsible-section-22">            
+      <br>To build the CNN we utilized the architecture outlined in a paper written by NVIDIA. In the paper, they used the CNN to map input from a front facing dash camera to steering commands <a href="#collapsible-section-6">[1]</a>. We used a slightly adapted architecture to predict the speed of the car instead.
+
+      <figure align="center">
+        <img src="https://raw.githubusercontent.com/abadari3/anandabadari.com/master/images/nvidia.png" style="width:60%">
+        <figcaption>CNN Architecture designed by NVIDIA.</figcaption>
+      </figure><br>
+
+      Before passing frame data into the CNN, we cropped the frames and then resized them to the input size expected by the CNN. Each frame was cropped to remove a portion of the sky and the hood of the car which can be seen in each frame. Once the frames were cropped, they were resized to (66x200x3).
+    </div>
+  </p>
+  <hr>
+</div>
+
+<button class="collapsible" id="collapsible-button-3" onclick="toggleCollapsibleSectionWithAnimation.call(this)"><h3>Experiments and Results</h3></button>
+<div class="collapsible-content" id="collapsible-section-3">
+  <p>
+    For our experimental setup, we had access to a training dataset (train.mp4) that comprised 20400 individual frames, and labelled speed data for every frame. Below are the true speeds of the car based on the labelled frames.<br><br>
+
+    <figure align="center">
+      <img src="https://raw.githubusercontent.com/abadari3/anandabadari.com/master/images/truespeed.png" style="width:100%">
+      <figcaption>True Speed at a Specific Frame.</figcaption>
+    </figure><br>
+
+    From these 20400 labelled frames, we split the data 80% into a training set and 20% into a testing set for a CNN implementation. <br><br>
+
+    In terms of an evaluation metric, we will be using MSE (Mean Squared Error) on the test data between the predicted speeds and the true labelled speeds. As described in the comma.ai challenge, an MSE value of below 10 is good, below 5 is great, and below 3 is amazing, and this will be the baseline to evaluate the effectiveness of our approach. <br><br>
+
+    <button class="collapsible" id="collapsible-button-30" onclick="toggleCollapsibleSectionWithAnimation.call(this)"><strong>SIFT, Lane Detection, Homography</strong></button>
+    <div class="collapsible-content" id="collapsible-section-30">
+      The lane detection algorithm utilizes two major techniques learned in class: canny edge and Hough transformation. Canny edge detection is used to extract white lane markings on the road in contrast to the black asphalt. Then, Hough line transformation locates where straight lines are located in pixel values.
+      <br><br>Within the lane detection, the sensitivity of canny edge and Hough line transformation can be tweaked. Through my experimentation, the canny edge min and max sensitivity values are currently set as 50 and 130, respectively. And the line detected by Hough transformation must be at least 20 pixels long.
+      <br><br>There are occasions when lane detection can fail. For example, there aren’t any lane markings in the direction of the vehicle’s travel at the intersection. In such case, the algorithm will fall back to use SIFT keypoints in the general region where the road is located. If all else fails, then it will simply use every SIFT keypoints it can find.
+
+      <br><br>
+    </div>
+
+    <button class="collapsible" id="collapsible-button-31" onclick="toggleCollapsibleSectionWithAnimation.call(this)"><strong>Dense Optical Map</strong></button>
+    <div class="collapsible-content" id="collapsible-section-31">            
+      <br>For the image preprocessing as described in approach, the parameters that we could change are the amount by which we crop the images, and how much our sigma value is for the canny edge detector. Resizing the images, equalizing brightness, and many other things can be done here. As for the canny edge detector, while raising the sigma value might help not detect smaller edges, it may miss lanes completely, making optical flow more difficult. <br><br>
+
+      As for the actual optical flow algorithm, there are many parameters to the Gunnar Farneback algorithm. pyr_scale specifies the image scale to build pyramids for each image. In our case we used a 0.5 pyr_scale value which represents a classical pyramid, where each layer is half the size of the next layer. This didn’t quite make a difference to us, as we set levels=1, which means no additional layers are constructed. win_size is the averaging window size, where larger values improve the model’s performance to noise and fast motion, but result in a more blurred map. We had the algorithm perform iterations=2 at our layer, increasing the number of iterations may improve performance, but also decreases the speed significantly. For the poly_n, poly_sigma parameters, these are the size of the pixel neighborhood and the standard deviation of the gaussian to smooth over. For these, we used the typical values of poly_n = 5, poly_sigma = 1.3. Larger values for poly_n and poly_sigma would mean more smoothing and better approximated for smoother surfaces, but causing more blurring in the output optical map. 
+      <br>
+    </div>
+
+    <button class="collapsible" id="collapsible-button-32" onclick="toggleCollapsibleSectionWithAnimation.call(this)"><strong><br>CNN</strong><br></button>
+    <div class="collapsible-content" id="collapsible-section-32">            
+      <br>After splitting the frames into a training set and test set, we trained the CNN on the cropped and resized images. For the initial run of the CNN, we used epochs, steps per epoch, and an optimizer as the hyperparameters. To test the initial results of the CNN, we used 5 epochs, 200 steps per epoch, and the Adam optimizer specifically. In the next iteration, we would like to raise the number of epochs and the number of steps per epoch. We would also like to try using different optimizers and see how it influences our results. Since raising the number of epochs and steps per epoch requires more time to train the model, we used lower values to get a preliminary result. After training the CNN, we had an MSE of 25.86 for the training data and a MSE of 53.52 for the validation data. Our goal for the MSE is to get a value under 10, so the MSE we got is pretty high at this point, but there are a lot of optimizations we can work on in the next iteration.
+    </div>
+  </p>
+  <hr>
+</div>
+
+<button class="collapsible" id="collapsible-button-4" onclick="toggleCollapsibleSectionWithAnimation.call(this)"><h3>Qualitative Results</h3></button>
+<div class="collapsible-content" id="collapsible-section-4">
+  <p>
+    <button class="collapsible" id="collapsible-button-40" onclick="toggleCollapsibleSectionWithAnimation.call(this)"><strong>SIFT, Lane Detection, Homography</strong></button>
+    <div class="collapsible-content" id="collapsible-section-40">            
+      <div align="center"><u>Successful Lane Detection and Filtering </u></div>
+      In the successful example below, lines across two frames indicate matched SIFT key-points. They have been filtered to only contain lane-based keypoints.
+
+      <figure align="center">
+        <img src="https://raw.githubusercontent.com/abadari3/anandabadari.com/master/images/lanesuccess.png" style="width:100%">
+      </figure><br>
+
+      <div align="center"><u>Failed Lane Detection and Filtering </u></div>
+      In these frames, the canny edge was not able to come up with any lane markings because they are far away and faint.
+
+      <figure align="center">
+        <img src="https://raw.githubusercontent.com/abadari3/anandabadari.com/master/images/lanefail.png" style="width:100%">
+      </figure><br>
+
+      <div align="center"><u>Fail Over Region Filtering </u></div>
+      Since lane filtering was not successful, key-points have been filtered by the predefined region which still contain useful road markings.
+
+      <figure align="center">
+        <img src="https://raw.githubusercontent.com/abadari3/anandabadari.com/master/images/lanefailover.png" style="width:100%">
+      </figure>
+      <br><br>
+    </div>
+
+    <button class="collapsible" id="collapsible-button-41" onclick="toggleCollapsibleSectionWithAnimation.call(this)"><strong>Dense Optical Map and CNN</strong></button>
+    <div class="collapsible-content" id="collapsible-section-41">            
+      <br>
+      <div align="center"><u>Preprocessing for CNN</u></div>
+      Below is an example of an original frame, vs the cropped and resized image used in the CNN.
+
+      <figure align="center">
+        <img src="https://raw.githubusercontent.com/abadari3/anandabadari.com/master/images/ogresize.png" style="width:100%">
+      </figure><br>
+
+      <div align="center"><u>Good Results for Optical Flow</u></div>
+      Here the optical flows are brightened enough and is showcasing the motion really well of the 2 consecutive frames, especially all the lanes. A higher threshold from the canny edge detector, however, should be used for better results.
+
+      <figure align="center">
+        <img src="https://raw.githubusercontent.com/abadari3/anandabadari.com/master/images/flowgood.png" style="width:100%">
+      </figure><br>
+
+      <div align="center"><u>Bad Results for Optical Flow</u></div>
+      Bad Results: Here, the optical flow is really light and kind of not strong. This probably occurred because the lanes were not highlighted properly by the canny edge detector among the consecutive frames..
+
+      <figure align="center">
+        <img src="https://raw.githubusercontent.com/abadari3/anandabadari.com/master/images/flowbad.png" style="width:100%">
+      </figure>
+      <br>
+    </div>
+  </p>
+  <hr>
+</div>
+
+<button class="collapsible" id="collapsible-button-5" onclick="toggleCollapsibleSectionWithAnimation.call(this)"><h3>Conclusion and Future Work</h3></button>
+<div class="collapsible-content" id="collapsible-section-5">
+  <p>
+    We got a pretty high MSE error when comparing validation dataset speeds with the actual speeds via the CNN approach. Here are some things we think we can do to decrease the error:<br><br>
+
+    For frame preprocessing, some things we’d like to work on before the final update are: 
+    <ul>
+      <li>Semantic Segmentation - used to get rid of static objects and surrounding cars in the camera view</li>
+      <li>Brightening the frames - a lot of the images are dark, so I think we should configure the HSV channels of the images.</li>
+      <li>Cropping more effectively - we minimized the frame rectangularly, when really it should be a triangular/trapezoidal crop</li>
+    </ul>
+    For CNN modeling:<br><br>
+    <ul>
+      <li>Since the test.mp4 file doesn’t have the actual speed of each frame, we used 80% of the train.mp4 file for training, 20% for validation. We should test out some other splits, that gives us better results.
+      </li>
+      <li>We would like to further experiment and tune hyperparameters such as number of epochs, steps per epoch, and the type of optimizer used for the CNN.
+      </li>
+      <li>We currently do minimal preprocessing on the frames before passing them into the CNN. We would like to experiment with other preprocessing techniques to get better results.</li>
+      <li>
+        If we have more time, we should try out other variants of CNN models. Right now, we use NVIDIA CNN as diagrammed above.
+      </li>
+    </ul>
+  </p>
+  <hr>
+</div>
+
+<button class="collapsible" id="collapsible-button-6" onclick="toggleCollapsibleSectionWithAnimation.call(this)"><h3>References</h3></button>
+<div class="collapsible-content" id="collapsible-section-6">
+  <p>
+    <ol>
+      <li>
+        End to End Learning for Self-Driving Cars, NVIDIA Corporation. <br> <a target="_blank" href="https://arxiv.org/pdf/1604.07316v1.pdf">https://arxiv.org/pdf/1604.07316v1.pdf</a>
+      </li>
+    </ol>
+  </p>
+  <hr>
+</div>
+{% endblock %}

@@ -2,11 +2,25 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="chrome=1">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <link rel="stylesheet" href="static\css\index.css">
+
     {% block css %}{% endblock %}
     {% block head %}{% endblock %}
+    
 </head>
 <body>
-    {% block body %}{% endblock %} 
+    <div class="wrapper">
+        <header>
+            {% block header %}{% endblock %} 
+        </header>
+
+        <section>
+            {% block body %}{% endblock %} 
+        </section>
+    </div>
+    <script src="javascripts/scale.fix.js"></script>
 </body>
 </html>

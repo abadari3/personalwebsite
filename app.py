@@ -7,6 +7,7 @@ app.config['SQLALCHEMY_DATABASE_URI'] = 'postgres://hpkzufpyrlpwsl:223744b81464f
 app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
 db.init_app(app)
 
+# test test
 
 @app.route('/')
 def index():
@@ -22,76 +23,18 @@ def home():
 @app.route('/cvproject')
 def cvproject():
     # return todo()
-    return render_template('cvproject.html')
+    return render_template('cvindex.html')
 
-@app.route('/mlproject')
-def mlproject():
+@app.route('/cvproposal')
+def cvprop():
     # return todo()
-    return render_template('mlproject.html')
+    return render_template('cvprop.html')
 
+@app.route('/cvmidterm')
+def cvmidterm():
+    # return todo()
+    return render_template('cvmidterm.html')
 
-@app.route('/beta')
-def beta():
-    return redirect('/home')
-    # return render_template('index.html')
-
-@app.route('/resume')
-def resume():
-    return render_template('resume.html')
-
-@app.route('/projects')
-def projects():
-    return render_template('projects.html')
-
-@app.route('/blog')
-def blog():
-    return render_template('blog.html')
-
-@app.route('/about')
-def about():
-    return render_template('about.html')
-
-@app.route('/todo', methods=['POST', 'GET'])
-def todo():
-    if request.method == 'POST':
-        task_content = request.form['content']
-        new_task = Todo(content=task_content)
-
-        try:
-            db.session.add(new_task)
-            db.session.commit()
-            return redirect('/todo')
-        except:
-            return "Error."
-        
-    else:
-        tasks = Todo.query.order_by(Todo.date).all()
-        return render_template('todo.html', tasks=tasks)
-
-@app.route('/todo/delete/<int:id>')
-def delete(id):
-    task = Todo.query.get_or_404(id)
-    try:
-        db.session.delete(task)
-        db.session.commit()
-        return redirect('/todo')
-    except:
-        return "Error."
-
-@app.route('/todo/update/<int:id>', methods=['GET', 'POST'])
-def update(id):
-    task = Todo.query.get_or_404(id)
-
-    if request.method == 'POST':
-        task.content = request.form['content']
-
-        try:
-            db.session.commit()
-            return redirect('/todo')
-        except:
-            return "Error."
-    else:
-        return render_template('update.html', task=task)
 
 if __name__ == '__main__':
     app.run(debug = True)
