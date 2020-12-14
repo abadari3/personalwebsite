@@ -346,7 +346,7 @@ header {
   position:fixed;
   -webkit-font-smoothing:subpixel-antialiased;
 }
-
+/* 
 header ul {
   list-style:none;
   height:40px;
@@ -404,7 +404,7 @@ header ul a strong {
   font-size:14px;
   display:block;
   color:black;
-}
+} */
 
 section {
   width:800px;
