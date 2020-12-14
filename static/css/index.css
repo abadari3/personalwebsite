@@ -210,14 +210,14 @@
   transition: max-height 0.2s ease-out;
 }
 
-/* Style the collapsible content. Note: shown by default */
+
 .collapsible-content-shown-by-default {
   max-height: 100%;
   padding: 0px;
   overflow: hidden;
   transition: max-height 0.2s ease-out;
 }
-/* 
+
 .disabled{
   pointer-events:none;
   color:darkgray
@@ -517,7 +517,6 @@ div:target {
   body {
     padding:0.4in;
     font-size:12pt;
-    /* color:#444; */
     color:black;
   }
-} */
+}
