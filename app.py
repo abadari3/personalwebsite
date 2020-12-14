@@ -7,8 +7,8 @@ app = Flask(__name__)
 @app.route('/')
 def index():
     # return todo()
-    return redirect("https://www.linkedin.com/in/anandabadari/")
-    # return render_template('index.html')
+    # return redirect("https://www.linkedin.com/in/anandabadari/")
+    return render_template('index.html')
 
 @app.route('/home')
 def home():
