@@ -340,6 +340,10 @@ img {
   max-width:100%;
 }
 
+img.pic{
+  max-width: 100%;
+}
+
 header {
   width:270px;
   float:left;
@@ -447,9 +451,6 @@ div:target {
 } 
 
 @media print, screen and (max-width: 960px) {
-  img{
-    width: 25%;
-  }
 
   div.wrapper {
     width:auto;
@@ -485,10 +486,6 @@ div:target {
 }
 
 @media print, screen and (max-width: 720px) {
-  img{
-    width: 25%;
-  }
-  
   body {
     word-wrap:break-word;
   }
@@ -507,10 +504,6 @@ div:target {
 }
 
 @media print, screen and (max-width: 480px) {
-  img{
-    width: 25%;
-  }
-
   body {
     padding:15px;
   }
