@@ -277,7 +277,7 @@ a:hover {
   color:darkblue;
 }
 
-a small {
+small {
   font-size:11px;
   color:#777;
   margin-top:-0.3em;
@@ -465,6 +465,11 @@ figcaption {
   padding: 10px 10px;
   background-color: white;
   
+}
+
+img.social {
+  width:30px;
+  padding: 10px;
 }
 
 @media print, screen and (max-width: 980px) {
