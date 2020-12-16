@@ -8,7 +8,7 @@ def index():
 
 @app.route('/home')
 def home():
-    return render_template('index.html')
+    return redirect('/')
 
 @app.route('/aboutme')
 def about():
