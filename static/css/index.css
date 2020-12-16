@@ -472,6 +472,20 @@ img.social {
   padding: 10px;
 }
 
+#navbar {
+  overflow: hidden;
+}
+
+.sticky {
+  position: fixed;
+  top: 0;
+  width: 100%;
+}
+
+.sticky + .content {
+  padding-top: 60px;
+}
+
 @media print, screen and (max-width: 980px) {
   header {
     width:198px;

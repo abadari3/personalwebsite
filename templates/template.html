@@ -27,27 +27,27 @@
     <a href="">Coursework</a><br>
     <a href="">Resume</a><br>
     <a href="">Projects</a><br>
-    <!-- <a href="">Blog</a><br> -->
+    <a href="">Blog</a><br>
 </div>
 <br>
 <hr>
 <div align='center'>
-    <a href="">
+    <a target="_blank" href="https://www.facebook.com/anandabadari">
     <img class='social' src="https://raw.githubusercontent.com/abadari3/personalwebsite/master/images/fb.png">
     </a>
-    <a href="">
+    <a target="_blank" href="https://www.instagram.com/anandabadari/">
         <img class='social' src="https://raw.githubusercontent.com/abadari3/personalwebsite/master/images/insta.png">
     </a>
-    <a href="">
+    <a target="_blank" href="https://twitter.com/AnandaBadari">
         <img class='social' src="https://raw.githubusercontent.com/abadari3/personalwebsite/master/images/twitter.png">
     </a>    <br>
-    <a href="">
+    <a target="_blank" href="https://github.com/abadari3">
         <img class='social' src="https://raw.githubusercontent.com/abadari3/personalwebsite/master/images/github.png">
     </a>
-    <a href="">
+    <a target="_blank" href="mailto:badari.anand@gmail.com">
         <img class='social' src="https://raw.githubusercontent.com/abadari3/personalwebsite/master/images/gmail.png">
     </a>
-    <a href="">
+    <a target="_blank" href="https://www.linkedin.com/in/anandabadari/">
         <img class='social' src="https://raw.githubusercontent.com/abadari3/personalwebsite/master/images/linkedin.png">
     </a>   
     <hr>
@@ -62,13 +62,15 @@
         <img class='me' src="https://raw.githubusercontent.com/abadari3/personalwebsite/master/images/me.png">
     </a>
     <h1>Ananda Badari</h1>
-    <p>
-        <a href="">About Me</a>
-        <a href="">Coursework</a>
-        <a href="">Resume</a>
-        <a href="">Projects</a>
-        <!-- <a href="">Blog</a> -->
-    </p>
+    <div id='navbar'>
+        <p>
+            <a href="">About Me</a>
+            <a href="">Coursework</a>
+            <a href="">Resume</a>
+            <a href="">Projects</a>
+            <a href="">Blog</a>
+        </p>
+    </div>
     <hr>
 </div>
 {% endblock %} 
@@ -78,22 +80,22 @@
 
 {% block altfooter %}
 <div align='center'>
-    <a href="">
+    <a target="_blank" href="https://www.facebook.com/anandabadari">
     <img class='social' src="https://raw.githubusercontent.com/abadari3/personalwebsite/master/images/fb.png">
     </a>
-    <a href="">
+    <a target="_blank" href="https://www.instagram.com/anandabadari/">
         <img class='social' src="https://raw.githubusercontent.com/abadari3/personalwebsite/master/images/insta.png">
     </a>
-    <a href="">
+    <a target="_blank" href="https://twitter.com/AnandaBadari">
         <img class='social' src="https://raw.githubusercontent.com/abadari3/personalwebsite/master/images/twitter.png">
     </a>    
-    <a href="">
+    <a target="_blank" href="https://github.com/abadari3">
         <img class='social' src="https://raw.githubusercontent.com/abadari3/personalwebsite/master/images/github.png">
     </a>
-    <a href="">
+    <a target="_blank" href="mailto:badari.anand@gmail.com">
         <img class='social' src="https://raw.githubusercontent.com/abadari3/personalwebsite/master/images/gmail.png">
     </a>
-    <a href="">
+    <a target="_blank" href="https://www.linkedin.com/in/anandabadari/">
         <img class='social' src="https://raw.githubusercontent.com/abadari3/personalwebsite/master/images/linkedin.png">
     </a>    
     <br><br>
@@ -103,4 +105,34 @@
 {% endblock %} 
 
 {% block scripts %}
+<!-- window.onscroll = function() {scrollFunction()};
+
+function scrollFunction() {
+  if (document.body.scrollTop > 80 || document.documentElement.scrollTop > 80) {
+    document.getElementByClass("altheader").style.padding = "30px 10px";
+    document.getElementById("logo").style.fontSize = "25px";
+  } else {
+    document.getElementById("navbar").style.padding = "80px 10px";
+    document.getElementById("logo").style.fontSize = "35px";
+  }
+}  -->
+<script>
+// When the user scrolls the page, execute myFunction
+window.onscroll = function() {myFunction()};
+
+// Get the navbar
+var navbar = document.getElementById("navbar");
+
+// Get the offset position of the navbar
+var sticky = navbar.offsetTop;
+
+// Add the sticky class to the navbar when you reach its scroll position. Remove "sticky" when you leave the scroll position
+function myFunction() {
+  if (window.pageYOffset >= sticky) {
+    navbar.classList.add("sticky")
+  } else {
+    navbar.classList.remove("sticky");
+  }
+} 
+</script>
 {% endblock %}
