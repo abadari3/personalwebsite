@@ -6,10 +6,6 @@ app = Flask(__name__)
 def index():
     return render_template('index.html')
 
-@app.route('/home')
-def home():
-    return redirect('/')
-
 @app.route('/aboutme')
 def about():
     return render_template('about.html')
@@ -29,6 +25,15 @@ def projects():
 @app.route('/notes')
 def blog():
     return render_template('notes.html')
+
+# TEMPORARY, until google links the correct page when you search up my name.
+@app.route('/home')
+def home():
+    return redirect('/')
+
+@app.route('/beta')
+def beta():
+    return redirect('/')
 
 
 if __name__ == '__main__':
