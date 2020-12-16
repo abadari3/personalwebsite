@@ -477,8 +477,50 @@ img.social {
   overflow: hidden;
 }
 
+hr.custom{
+  margin: 0;
+}
+
+
 .sub {
-  background-color: #22863a;
+  padding-left: 25px;
+  padding-right: 25px;
+  padding-top: 15px;
+  padding-bottom: 1px;
+  border-radius: 25px;
+}
+
+div#white.sub {
+  background-color: white;
+}
+
+div#green.sub {
+  background-color: #72e785;
+}
+
+div#yellow.sub {
+  background-color: #ffd455;
+}
+
+div#blue.sub {
+  background-color: #7dcbec;
+}
+
+div#red.sub {
+  background-color: #f56b69;
+}
+
+div#gray.sub {
+  background-color: #a2a2aa;
+}
+
+a.blank {
+  text-decoration: none;
+  color: black;
+}
+
+a.blank :hover{
+  color:black;
 }
 
 @media print, screen and (max-width: 980px) {
@@ -530,7 +572,8 @@ img.social {
   .altheader {
     float:center;
     width:auto;
-    display: inline;
+    display: block;
+    background-color: white;
   }
 
   section {
