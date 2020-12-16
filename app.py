@@ -22,9 +22,9 @@ def resume():
 def projects():
     return render_template('projects.html')
 
-@app.route('/blog')
+@app.route('/notes')
 def blog():
-    return render_template('blog.html')
+    return render_template('notes.html')
 
 
 if __name__ == '__main__':
