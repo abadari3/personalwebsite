@@ -2,12 +2,13 @@
 
 {% block head %}
     <title>Ananda Badari</title>
+    <link rel="shortcut icon" type="image/png" href="https://raw.githubusercontent.com/abadari3/personalwebsite/master/images/me.png"/>
 {% endblock %}
 
 {% block header %}
-    <img src="https://raw.githubusercontent.com/abadari3/personalwebsite/master/images/me.png">
-    <hr>
     <div align='center'>
+        <img class='me' src="https://raw.githubusercontent.com/abadari3/personalwebsite/master/images/me.png">
+        <hr>
         <h1>Ananda Badari</h1>
         <h3>Georgia Tech</h3>
         <!-- <br> -->
@@ -18,19 +19,37 @@
     </div>
     <hr>
     <div align='center'>
-        <a class="disabled" href="">About Me</a><br>
-        <a class="disabled" href="">Coursework</a><br>
-        <a class="disabled" href="">Blog</a><br>
-        <a class="disabled" href="">Projects</a><br>
-        <a class="disabled" href="">About Me</a><br>
+        <a href="">About Me</a><br>
+        <a href="">Coursework</a><br>
+        <a href="">Resume</a><br>
+        <a href="">Projects</a><br>
+        <!-- <a href="">Blog</a><br> -->
     </div>
     <br>
     <hr>
     <p align='center' class="view"><a href="https://github.com/abadari3/personalwebsite">View the Project on GitHub <small>Personal Website</small></a></p>
 {% endblock %}
 
+{% block altheader %}
+    <div class='nav' align='center'>
+        <img class='me' align='center' src="https://raw.githubusercontent.com/abadari3/personalwebsite/master/images/me.png">
+        <h1>Ananda Badari</h1>
+        <p>
+            <a href="">About Me</a>
+            <a href="">Coursework</a>
+            <a href="">Resume</a>
+            <a href="">Projects</a>
+            <a href="">Blog</a>
+        </p>
+        <hr>
+    </div>
+    
+    
+    
+{% endblock %} 
+
 {% block body %}
-    <h1 align='center'>Automatic Speed Detection from Dashcam Video</h1>
+    
 
     <h3><a id="welcome-to-github-pages" class="anchor" href="#welcome-to-github-pages" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Introduction/Background</h3>
 

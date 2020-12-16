@@ -289,8 +289,9 @@ a:hover small {
 }
 
 .wrapper {
-  width:860px;
+  width:750px;
   margin:0 auto;
+  float: center;
 }
 
 blockquote {
@@ -339,8 +340,12 @@ img {
   max-width:100%;
 }
 
+img.me {
+  max-width:75%;
+}
+
 header {
-  width:270px;
+  width:200px;
   float:left;
   position:fixed;
   -webkit-font-smoothing:subpixel-antialiased;
@@ -408,9 +413,11 @@ header ul a strong {
 }
 
 section {
-  width:500px;
-  float:right;
+  width:600px;
+  float:center;
   padding-bottom:50px;
+  padding-left: 250px;
+  padding-right: 250px;
 }
 
 small {
@@ -443,21 +450,73 @@ figcaption {
   text-align: center;
 }
 
-@media print, screen and (max-width: 960px) {
+.altheader {
+  display: none;
+}
+
+.nav {
+  float: right;
+  text-align: center;
+  width: 100%;
+}
+
+.nav a {
+  color:royalblue;
+  padding: 10px 10px;
+  background-color: white;
+  
+}
+
+@media print, screen and (max-width: 980px) {
+  header {
+    width:198px;
+    float:left;
+    position:fixed;
+    -webkit-font-smoothing:subpixel-antialiased;
+    overflow-x: hidden; 
+  }
+
+  body{
+    overflow-x: hidden; 
+  }
+
+  section {
+    width:60%;
+    word-wrap: break-word;
+    float:center;
+    padding-bottom:50px;
+    padding-left: 235px;
+    overflow-x: hidden; 
+  }
+}
+
+@media print, screen and (max-width: 780px) {
 
   div.wrapper {
     width:auto;
     margin:0;
   }
 
-  header, section, footer {
+  img.me {
+    max-width:25%;
+  }
+
+  section, footer {
     float:none;
     position:static;
     width:auto;
+    display: inline;
   }
 
   header {
-    padding-right:320px;
+    display: none;
+    padding-right:0px;
+  }
+
+  .altheader {
+    float:center;
+    width:auto;
+    display: inline;
   }
 
   section {
@@ -494,6 +553,11 @@ figcaption {
   pre, code {
     word-wrap:normal;
   }
+  .nav a {
+    padding: 8px 4px;
+    
+  }
+
 }
 
 @media print, screen and (max-width: 480px) {
