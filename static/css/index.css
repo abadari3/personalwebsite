@@ -348,6 +348,7 @@ header {
   width:200px;
   float:left;
   position:fixed;
+  background-color: white;
   -webkit-font-smoothing:subpixel-antialiased;
 }
 
@@ -476,14 +477,8 @@ img.social {
   overflow: hidden;
 }
 
-.sticky {
-  position: fixed;
-  top: 0;
-  width: 100%;
-}
-
-.sticky + .content {
-  padding-top: 60px;
+.sub {
+  background-color: #22863a;
 }
 
 @media print, screen and (max-width: 980px) {
