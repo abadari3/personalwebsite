@@ -523,48 +523,6 @@ a.blank :hover{
   color:black;
 }
 
-html, body {
-  /* max-width: 100%; */
-  overflow-x: hidden;
-}
-
-div#navbar {
-  overflow: hidden;
-}
-
-/* The sticky class is added to the navbar with JS when it reaches its scroll position */
-.sticky {
-  left: 0px;
-  right: 0px;
-  position: fixed;
-  top: 0px;
-  width: 100%;
-  padding: 15px;
-  float: right;
-  /* padding-bottom: 0px; */
-  background-color: white;
-  border-width: 0px 0px 10px;
-  border-bottom-color: black;
-}
-
-div.sticky a img.me {
-  align-self: left;
-  display: inline-block;
-  float:inline-start;
-  /* text-align: center; */
-  padding-bottom: 0;
-  padding-left: 0;
-  padding-right: 15%;
-  vertical-align:middle;
-  width: 60px;
-}
-
-div.sticky h1 {
-  display: none;
-}
-
-
-
 @media print, screen and (max-width: 980px) {
   header {
     width:198px;

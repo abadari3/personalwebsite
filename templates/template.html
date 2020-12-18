@@ -22,7 +22,7 @@
     </p>
 </div>
 <hr>
-<div class="nav" align='center'>
+<div align='center'>
     <a href="/aboutme">About Me</a><br>
     <a href="/resume">Resume</a><br>
     <a href="/projects">Projects</a><br>
@@ -58,19 +58,20 @@
 
 {% block altheader %}
 <div class='nav' align='center'>
-    <div id='navbar' class=''>
-        <a href="/">
-            <img class='me' src="https://raw.githubusercontent.com/abadari3/personalwebsite/master/images/me.png">
-        </a>
-        <h1>Ananda Badari</h1>
-        <a href="/aboutme">About Me</a>
-        <a href="/resume">Resume</a>
-        <a href="/projects">Projects</a>
-        <a href="/courses">School</a>
-        <a href="/notes">Notes</a>
+    <a href="/">
+        <img class='me' src="https://raw.githubusercontent.com/abadari3/personalwebsite/master/images/me.png">
+    </a>
+    <h1>Ananda Badari</h1>
+    <div id='navbar'>
+        <p>
+            <a href="/aboutme">About Me</a>
+            <a href="/resume">Resume</a>
+            <a href="/projects">Projects</a>
+            <a href="/courses">School</a>
+            <a href="/notes">Notes</a>
+        </p>
     </div>
-    <br>
-        <hr id='navboundary' class=custom>
+    <hr class=custom>
 </div>
 {% endblock %} 
 
