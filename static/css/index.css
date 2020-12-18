@@ -523,6 +523,33 @@ a.blank :hover{
   color:black;
 }
 
+
+div.stickynav {
+  display: none;
+  position: fixed;
+  overflow: hidden;
+  background-color: white;
+  width: 100%;
+  top: 0;
+  padding-bottom: 5px;
+  border-bottom: 1px solid #efefef;
+}
+
+div.stickynav a img {
+  max-width: 60px;
+  padding-top: 10px;
+  vertical-align: middle;
+  float: left;
+}
+
+div.hidden {
+  display: none;
+}
+
+div.shown {
+  display: block;
+}
+
 @media print, screen and (max-width: 980px) {
   header {
     width:198px;

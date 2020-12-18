@@ -30,6 +30,28 @@
             {% block altfooter %}{% endblock %} 
         </div>
     </div>
+    <script>
+        window.onscroll = function() {myFunction()};
+        
+        var navbar = document.getElementById("navbar");
+        var stickynav = document.getElementById("stickynavbar");
+        var bound = document.getElementById("navhr");
+        var sticky = bound.offsetTop;
+        
+        function myFunction() {
+          if (window.pageYOffset >= sticky) {
+            navbar.classList.add("hidden")
+            navbar.classList.remove("shown")
+            stickynav.classList.add("shown")
+            stickynav.classList.remove("hidden")
+          } else {
+            navbar.classList.add("shown")
+            navbar.classList.remove("hidden")
+            stickynav.classList.add("hidden")
+            stickynav.classList.remove("shown");
+          }
+        }
+    </script>
     <script src="javascripts/scale.fix.js"></script>
     {% block scripts %}{% endblock %}
 </body>
