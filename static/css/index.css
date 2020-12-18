@@ -541,9 +541,10 @@ div#navbar {
   width: 100%;
   padding: 15px;
   float: right;
-  padding-bottom: 0px;
-  background-color:white;
-  border-bottom: 1px solid #e5e5e5;
+  /* padding-bottom: 0px; */
+  background-color: white;
+  border-width: 0px 0px 10px;
+  border-bottom-color: black;
 }
 
 div.sticky a img.me {
@@ -551,7 +552,7 @@ div.sticky a img.me {
   display: inline-block;
   float:inline-start;
   /* text-align: center; */
-  padding-bottom: 5px;
+  padding-bottom: 0;
   padding-left: 0;
   padding-right: 15%;
   vertical-align:middle;
