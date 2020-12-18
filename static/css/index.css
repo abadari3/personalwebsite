@@ -528,18 +528,22 @@ div.stickynav {
   display: none;
   position: fixed;
   overflow: hidden;
-  background-color: white;
+  background-color: transparent;
   width: 100%;
   top: 0;
   padding-bottom: 5px;
-  border-bottom: 1px solid #efefef;
+  border-bottom: 0px solid #efefef;
 }
 
 div.stickynav a img {
-  max-width: 60px;
+  float: left;
+  max-width: 59px;
   padding-top: 10px;
   vertical-align: middle;
-  float: left;
+  padding: 5px;
+  background-color: white;
+  border-radius: 64px;
+  margin-left: 75%;
 }
 
 div.hidden {
