@@ -514,6 +514,11 @@ div#gray.sub {
   background-color: #a2a2aa;
 }
 
+div#black.sub {
+  background-color:#24292e;
+  color: white;
+}
+
 a.blank {
   text-decoration: none;
   color: black;
