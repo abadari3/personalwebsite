@@ -519,6 +519,11 @@ div#black.sub {
   color: white;
 }
 
+div#black.sub h3{
+  /* background-color:#24292e; */
+  color: white;
+}
+
 a.blank {
   text-decoration: none;
   color: black;
@@ -526,6 +531,15 @@ a.blank {
 
 a.blank :hover{
   color:black;
+}
+
+a.blank2 {
+  text-decoration: none;
+  color: white;
+}
+
+a.blank2 :hover{
+  color:white;
 }
 
 div.hidden {
