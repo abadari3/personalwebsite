@@ -1,8 +1,5 @@
 {% extends 'template.html' %}
 
-{% block css %}
-{% endblock %}
-
 {% block head %}
 <title>Ananda Badari &nbsp; | &nbsp; Notes</title>
 {% endblock %}
@@ -37,10 +34,9 @@
 </a>
 <br>
 
-<a class='blank2' href="/aboutme">
+<a class='blank2 disabled' target="_blank" href="/notes">
     <div class='sub' id='black'>
-        <h3>About Me!</h3>
-
+        <strong style='font-size: large;'>To-Do for Website</strong>
         <p>
             <ul>
                 <li>Make mobile nav-bar sticky</li>
@@ -102,7 +98,4 @@
 </a>
 <br>
 
-{% endblock %}
-
-{% block scripts %}
 {% endblock %}
