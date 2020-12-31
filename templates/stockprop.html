@@ -1,0 +1,637 @@
+<!doctype html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="chrome=1">
+    <meta name="viewport" content="width=device-width">
+
+    <style>
+        /* Style the button that is used to open and close the collapsible content */
+        .collapsible {
+          background-color: transparent;
+          color: white;
+          cursor: pointer;
+          width: auto;
+          border: none;
+          text-align: left;
+          outline: none;
+          font-size: 15px;
+          text-decoration: none;
+        }
+  
+        /* Add a background color to the button if it is clicked on (add the .active class with JS), and when you move the mouse over it (hover) */
+        .collapsible-active, .collapsible:hover {
+          text-decoration: none;
+        }
+  
+        /* Style the collapsible content. Note: hidden by default */
+        .collapsible-content {
+          max-height: 100%;
+          padding: 0px;
+          overflow: hidden;
+          transition: max-height 0.2s ease-out;
+        }
+  
+        /* Style the collapsible content. Note: shown by default */
+        .collapsible-content-shown-by-default {
+          max-height: 100%;
+          padding: 0px;
+          overflow: hidden;
+          transition: max-height 0.2s ease-out;
+        }
+  
+        .disabled{
+          pointer-events:none;
+          /* font-style:italic; */
+          color:darkgray
+        }
+  
+        .home{
+          color:black
+        }
+  
+        body {
+          background-color: #fff;
+          padding:50px;
+          font: 14px/1.5 "Noto Sans", "Helvetica Neue", Helvetica, Arial, sans-serif;
+          /* color:#727272; */
+          /* color:darkslategray; */
+          color:black;
+          font-weight:400;
+        }
+  
+        h1, h2, h3, h4, h5, h6 {
+          /* color:#222; */
+          color:black;
+          margin:0 0 20px;
+        }
+  
+        p, ul, ol, table, pre, dl {
+          margin:0 0 20px;
+        }
+  
+        h1, h2, h3 {
+          line-height:1.1;
+        }
+  
+        h1 {
+          font-size:28px;
+        }
+  
+        h2 {
+          /* color:#393939; */
+          color:black;
+        }
+  
+        h3, h4, h5, h6 {
+          /* color:#494949; */
+          color:black;
+        }
+  
+        a {
+          /* color:#39c; */
+          color:dodgerblue;
+          text-decoration:none;
+        }
+  
+        a:hover {
+          /* color:#069; */
+          color:darkblue;
+        }
+  
+        a small {
+          font-size:11px;
+          color:#777;
+          margin-top:-0.3em;
+          display:block;
+        }
+  
+        a:hover small {
+          color:#777;
+        }
+  
+        .wrapper {
+          width:860px;
+          margin:0 auto;
+        }
+  
+        blockquote {
+          border-left:1px solid #e5e5e5;
+          margin:0;
+          padding:0 0 0 20px;
+          font-style:italic;
+        }
+  
+        code, pre {
+          font-family:Monaco, Bitstream Vera Sans Mono, Lucida Console, Terminal, Consolas, Liberation Mono, DejaVu Sans Mono, Courier New, monospace;
+          color:#333;
+          font-size:12px;
+        }
+  
+        pre {
+          padding:8px 15px;
+          background: #f8f8f8;
+          border-radius:5px;
+          border:1px solid #e5e5e5;
+          overflow-x: auto;
+        }
+  
+        table {
+          width:100%;
+          border-collapse:collapse;
+        }
+  
+        th, td {
+          text-align:left;
+          padding:5px 10px;
+          border-bottom:1px solid #e5e5e5;
+        }
+  
+        dt {
+          color:#444;
+          /* color:black; */
+          font-weight:700;
+        }
+  
+        th {
+          color:#444;
+        }
+  
+        img {
+          max-width:100%;
+        }
+  
+        header {
+          width:270px;
+          float:left;
+          position:fixed;
+          -webkit-font-smoothing:subpixel-antialiased;
+        }
+  
+        header ul {
+          list-style:none;
+          height:40px;
+          padding:0;
+          background: #f4f4f4;
+          border-radius:5px;
+          border:1px solid #e0e0e0;
+          width:270px;
+        }
+  
+        header li {
+          width:89px;
+          float:left;
+          border-right:1px solid #e0e0e0;
+          height:40px;
+        }
+  
+        header li:first-child a {
+          border-radius:5px 0 0 5px;
+        }
+  
+        header li:last-child a {
+          border-radius:0 5px 5px 0;
+        }
+  
+        header ul a {
+          line-height:1;
+          font-size:11px;
+          color:#999;
+          display:block;
+          text-align:center;
+          padding-top:6px;
+          height:34px;
+        }
+  
+        header ul a:hover {
+          color:#999;
+        }
+  
+        header ul a:active {
+          background-color:#f0f0f0;
+        }
+  
+        strong {
+          /* color:#222; */
+          color:black;
+          font-weight:700;
+        }
+  
+        header ul li + li + li {
+          border-right:none;
+          width:89px;
+        }
+  
+        header ul a strong {
+          font-size:14px;
+          display:block;
+          /* color:#222; */
+          color:black;
+        }
+  
+        section {
+          width:500px;
+          float:right;
+          padding-bottom:50px;
+        }
+  
+        small {
+          font-size:11px;
+        }
+  
+        hr {
+          border:0;
+          background:#e5e5e5;
+          height:1px;
+          margin:0 0 20px;
+        }
+  
+        footer {
+          width:270px;
+          float:left;
+          position:fixed;
+          bottom:50px;
+          -webkit-font-smoothing:subpixel-antialiased;
+        }
+  
+        figure {
+          margin: auto;
+        }
+  
+        figcaption {
+          background-color: white;
+          color: black;
+          font-style: italic;
+          text-align: center;
+        }
+  
+        @media print, screen and (max-width: 960px) {
+  
+          div.wrapper {
+            width:auto;
+            margin:0;
+          }
+  
+          header, section, footer {
+            float:none;
+            position:static;
+            width:auto;
+          }
+  
+          header {
+            padding-right:320px;
+          }
+  
+          section {
+            border:1px solid #e5e5e5;
+            border-width:1px 0;
+            padding:20px 0;
+            margin:0 0 20px;
+          }
+  
+          header a small {
+            display:inline;
+          }
+  
+          header ul {
+            position:absolute;
+            right:50px;
+            top:52px;
+          }
+        }
+  
+        @media print, screen and (max-width: 720px) {
+          body {
+            word-wrap:break-word;
+          }
+  
+          header {
+            padding:0;
+          }
+  
+          header ul, header p.view {
+            position:static;
+          }
+  
+          pre, code {
+            word-wrap:normal;
+          }
+        }
+  
+        @media print, screen and (max-width: 480px) {
+          body {
+            padding:15px;
+          }
+  
+          header ul {
+            width:99%;
+          }
+  
+          header li, header ul li + li + li {
+            width:33%;
+          }
+        }
+  
+        @media print {
+          body {
+            padding:0.4in;
+            font-size:12pt;
+            /* color:#444; */
+            color:black;
+          }
+        }
+  
+        /*!
+        * GitHub Light v0.4.1
+        * Copyright (c) 2012 - 2017 GitHub, Inc.
+        * Licensed under MIT (https://github.com/primer/github-syntax-theme-generator/blob/master/LICENSE)
+        */
+  
+        .pl-c /* comment, punctuation.definition.comment, string.comment */ {
+          color: #6a737d;
+        }
+  
+        .pl-c1 /* constant, entity.name.constant, variable.other.constant, variable.language, support, meta.property-name, support.constant, support.variable, meta.module-reference, markup.raw, meta.diff.header, meta.output */,
+        .pl-s .pl-v /* string variable */ {
+          color: #005cc5;
+        }
+  
+        .pl-e /* entity */,
+        .pl-en /* entity.name */ {
+          color: #6f42c1;
+        }
+  
+        .pl-smi /* variable.parameter.function, storage.modifier.package, storage.modifier.import, storage.type.java, variable.other */,
+        .pl-s .pl-s1 /* string source */ {
+          color: #24292e;
+        }
+  
+        .pl-ent /* entity.name.tag, markup.quote */ {
+          color: #22863a;
+        }
+  
+        .pl-k /* keyword, storage, storage.type */ {
+          color: #d73a49;
+        }
+  
+        .pl-s /* string */,
+        .pl-pds /* punctuation.definition.string, source.regexp, string.regexp.character-class */,
+        .pl-s .pl-pse .pl-s1 /* string punctuation.section.embedded source */,
+        .pl-sr /* string.regexp */,
+        .pl-sr .pl-cce /* string.regexp constant.character.escape */,
+        .pl-sr .pl-sre /* string.regexp source.ruby.embedded */,
+        .pl-sr .pl-sra /* string.regexp string.regexp.arbitrary-repitition */ {
+          color: #032f62;
+        }
+  
+        .pl-v /* variable */,
+        .pl-smw /* sublimelinter.mark.warning */ {
+          color: #e36209;
+        }
+  
+        .pl-bu /* invalid.broken, invalid.deprecated, invalid.unimplemented, message.error, brackethighlighter.unmatched, sublimelinter.mark.error */ {
+          color: #b31d28;
+        }
+  
+        .pl-ii /* invalid.illegal */ {
+          color: #fafbfc;
+          background-color: #b31d28;
+        }
+  
+        .pl-c2 /* carriage-return */ {
+          color: #fafbfc;
+          background-color: #d73a49;
+        }
+  
+        .pl-c2::before /* carriage-return */ {
+          content: "^M";
+        }
+  
+        .pl-sr .pl-cce /* string.regexp constant.character.escape */ {
+          font-weight: bold;
+          color: #22863a;
+        }
+  
+        .pl-ml /* markup.list */ {
+          color: #735c0f;
+        }
+  
+        .pl-mh /* markup.heading */,
+        .pl-mh .pl-en /* markup.heading entity.name */,
+        .pl-ms /* meta.separator */ {
+          font-weight: bold;
+          color: #005cc5;
+        }
+  
+        .pl-mi /* markup.italic */ {
+          font-style: italic;
+          color: #24292e;
+        }
+  
+        .pl-mb /* markup.bold */ {
+          font-weight: bold;
+          color: #24292e;
+        }
+  
+        .pl-md /* markup.deleted, meta.diff.header.from-file, punctuation.definition.deleted */ {
+          color: #b31d28;
+    background-color: #ffeef0;
+  }
+  
+  .pl-mi1 /* markup.inserted, meta.diff.header.to-file, punctuation.definition.inserted */ {
+    color: #22863a;
+    background-color: #f0fff4;
+  }
+  
+  .pl-mc /* markup.changed, punctuation.definition.changed */ {
+    color: #e36209;
+    background-color: #ffebda;
+  }
+  
+  .pl-mi2 /* markup.ignored, markup.untracked */ {
+    color: #f6f8fa;
+    background-color: #005cc5;
+  }
+  
+  .pl-mdr /* meta.diff.range */ {
+    font-weight: bold;
+    color: #6f42c1;
+  }
+  
+  .pl-ba /* brackethighlighter.tag, brackethighlighter.curly, brackethighlighter.round, brackethighlighter.square, brackethighlighter.angle, brackethighlighter.quote */ {
+    color: #586069;
+  }
+  
+  .pl-sg /* sublimelinter.gutter-mark */ {
+    color: #959da5;
+  }
+  
+  .pl-corl /* constant.other.reference.link, string.other.link */ {
+    text-decoration: underline;
+    color: #032f62;
+  }
+  
+  .center {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    /* width: 50%; */
+  }
+      </style>
+    
+    <title>Predicting Future Stock Market Prices using a Multilayer Perceptron Model</title>
+    <!--[if lt IE 9]>
+    <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+  </head>
+  <body>
+    <div class="wrapper">
+      <header>
+        <h1><a class="home" href="stock">Predicting Future Stock Market Prices using a Multilayer Perceptron Model</a></h1>
+        <hr>
+        <h3>CS 4641: Machine Learning</h3>
+        <p>Ananda Badari<br>
+          Reed Bethune<br>
+          Leon Breaux<br>
+          Winter Galyon<br>
+          Soo Kim</p>
+        <hr>
+        <div align='center'>
+          <a href="stockprop">Project Proposal</a><br>
+          <a href="stockmidterm">Midterm Update</a><br>
+          <a href="stockfinal">Final Update</a>
+        </div>
+        <br>
+        <hr>
+        <img src="https://miro.medium.com/max/432/1*y0pXhfaTGmvfNwaGoHnW5w.jpeg">
+        <img src="images/AI-Stock.png">
+        
+
+        <p class="view"><a href="https://github.gatech.edu/abadari3/Predicting-Future-Stock-Market-Prices-using-a-Multilayer-Perceptron-Model">View the Project on GitHub <small>Predicting Future Stock Market Prices using a Multilayer Perceptron Model</small></a></p>
+
+      </header>
+      
+      <section>
+        <h1 align='center'>Project Proposal</h1>
+
+        <figure align="center">
+          <video width="600px" controls>
+            <source src="images/proposal.mp4" type="video/mp4">
+          </video>
+        </figure><br><br>
+
+        <h3><a id="welcome-to-github-pages" class="anchor" href="#welcome-to-github-pages" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Introduction/Background</h3>
+
+        <p>
+          Prediction of stock prices is an incredibly complex problem, which is “strongly affected by various highly interrelated sources … that cover a wide range of topics including economics, politics, and psychology” <a href="#references">(Q. Li et al)</a>. We can analyze stock behavior from multiple perspectives, using many different technical indicators, and evaluate the accuracy of our model. 
+        </p>
+
+        <h3>
+          <a id="designer-templates" class="anchor" href="#designer-templates" aria-hidden="true">
+            <span aria-hidden="true" class="octicon octicon-link"></span>
+          </a>
+          Problem Definition
+        </h3>
+
+        <p>
+          The problem is this: where does a security’s value go tomorrow? Given a wealth of information, how can we sift through it all and determine what actually has predictive power. Recent research has shown that “numerous prediction applications using Artificial Neural Networks (ANN), fuzzy logic Genetic Algorithms (GA) and other techniques” have proven effective <a href="#references">(Patel et al)</a>. We believe that given the right information, finding significant success in predicting stock prices is a matter of using the correct technique.
+        </p>
+
+        <h3>
+          <a id="creating-pages-manually" class="anchor" href="#creating-pages-manually" aria-hidden="true">
+            <span aria-hidden="true" class="octicon octicon-link"></span>
+          </a>
+          Methods
+        </h3>
+
+        <p>
+          The model proposed in Patel, Shah, Thakkar, Kotecha had its inputs as 10 technical indicators for previous stock data, and used a variety of methods to predict the closing price <i>n</i> days from now. They found that the best overall prediction performance is achieved by SVR–ANN model <a href="#references">(Patel et al)</a>. Additionally, when comparing the Long-Short Term Memory model to the Multilayer Perceptron model, Khare, Darekar, Gupta, Attar found that MLP significantly outperforms LSTM <a href="#references">(Khare et al)</a>.<br><br>
+
+          Thus, we will be modifying Patel’s fusion model with an Multilayer Perceptron Model, rather than a single-layer Artificial Neural Network.<br><br>
+          
+          Thus, our methodology is as follows: we collect the appropriate technical indicators for the previous <i>t</i> days, and run them through a Support Vector Regression (SVR) model to predict the technical indicators on day <i>(t + n)</i>. These predicted technical indicators are then inputted to a Multilayer perceptron network, which predicts the closing stock price on the <i>(t + n)</i> day. <br>
+
+          <figure>
+            <img src="images/2stage.png" style="width:100%">
+            <figcaption>Two-Stage Fusion SVR-MLP Model</figcaption>
+          </figure>
+          
+        </p>
+
+        <h3>
+          <a id="authors-and-contributors" class="anchor" href="#authors-and-contributors" aria-hidden="true">
+            <span aria-hidden="true" class="octicon octicon-link"></span>
+          </a>Potential results
+        </h3>
+
+        <p>
+        After implementing our prediction algorithm, we will need a way to evaluate its effectiveness. We will separate the past data into a long learning period, and a short evaluation period. The learning period will be fed into the algorithm, which will then predict price movements for the evaluation period. We can repeat this testing over a number of different stock symbols, and evaluate the average error to determine the effectiveness of our program. An effective program should be able to predict the direction of movement in stock prices with an extremely high accuracy (95% or above). Because we are focusing on technical analysis and excluding fundamental analysis, it is expected that our models will fail to predict movements based on news and events. 
+        </p>
+
+        <h3>
+          <a id="support-or-contact" class="anchor" href="#support-or-contact" aria-hidden="true">
+            <span aria-hidden="true" class="octicon octicon-link"></span>
+          </a>
+          Discussion
+        </h3>
+
+        <p>
+        The stock market provides investors with an avenue to generate passive income. However, the complexity of predicting near future growth of company stocks has led motivated individuals to explore machine learning algorithms to reduce possible losses and maximize potential gains. The amount of aggregated financial market data and intercorrelated technical indicators makes exploring machine learning approaches viable with the ability to outperform fundamental investors. Our project involves exploring the success of a machine learning approach that utilizes technical analysis to predict the closing stock price on the specific day as an alternative to current predictive methods. 
+        </p>
+
+        <h3 id="references">
+          <a id="support-or-contact" class="anchor" href="#support-or-contact" aria-hidden="true">
+            <span aria-hidden="true" class="octicon octicon-link"></span>
+          </a>
+          References
+        </h3>
+
+        <p>
+          <ol>
+            <li>
+              <a  id="ref" target="_blank" href="papers/khare.pdf">Khare, Kaustubh & Darekar, Omkar & Gupta, Prafull & Attar, Vahida. (2017). Short term stock price prediction using deep learning. 482-486. 10.1109/RTEICT.2017.8256643. </a>
+            </li>
+            <li>
+              <a  id="ref" target="_blank" href="papers/li.pdf">Qing Li, Yuanzhu Chen, Li Ling Jiang, Ping Li, and Hsinchun Chen. 2016. A Tensor-Based Information Framework for Predicting the Stock Market. ACM Trans. Inf. Syst. 34, 2, Article 11 (April 2016), 30 pages. DOI:https://doi.org/10.1145/2838731 </a>
+            </li>
+            <li><a  id="ref" target="_blank" href="papers/patel.pdf">Patel, J., Shah, S., Thakkar, P., & Kotecha, K. (2015). Predicting stock market index using fusion of machine learning techniques. <i>Expert Syst. Appl.</i>, 42, 2162-2172. </a></li>
+          </ol> 
+        </p>
+
+      </section>
+    </div>
+    <script>
+        var metas = document.getElementsByTagName('meta');
+        var i;
+        if (navigator.userAgent.match(/iPhone/i)) {
+          for (i=0; i<metas.length; i++) {
+            if (metas[i].name == "viewport") {
+              metas[i].content = "width=device-width, minimum-scale=1.0, maximum-scale=1.0";
+            }
+          }
+          document.addEventListener("gesturestart", gestureStart, false);
+        }
+        function gestureStart() {
+          for (i=0; i<metas.length; i++) {
+            if (metas[i].name == "viewport") {
+              metas[i].content = "width=device-width, minimum-scale=0.25, maximum-scale=1.6";
+            }
+          }
+        }
+    
+        function toggleCollapsibleSectionWithAnimation() {
+          this.classList.toggle("collapsible-active");
+          var buttonId = this.id;
+          var sectionId = buttonId.replace("button","section");
+          var content = document.getElementById(sectionId);
+          var mHeight = window.getComputedStyle(content).maxHeight;
+          if (mHeight !== "0px"){
+            content.style.maxHeight = "0px";
+          } else {
+            content.style.maxHeight = "100%";
+          }
+        }
+    </script>
+    
+  </body>
+</html>

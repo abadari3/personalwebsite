@@ -22,6 +22,39 @@ def resume():
 def projects():
     return render_template('projects.html')
 
+@app.route('/projects/dashcam')
+def cv():
+    return render_template('dashcam.html')
+
+@app.route('/projects/dashcamproposal')
+def cvprop():
+    return render_template('dashcamproposal.html')
+
+@app.route('/projects/dashcammidterm')
+def cvmid():
+    return render_template('dashcammidterm.html')
+
+@app.route('/projects/dashcamfinal')
+def cvfin():
+    return render_template('dashcamfinal.html')
+
+@app.route('/projects/stock')
+def ml():
+    return render_template('stock.html')
+
+@app.route('/projects/stockprop')
+def mlprop():
+    return render_template('stockprop.html')
+
+@app.route('/projects/stockmidterm')
+def mlmid():
+    return render_template('stockmidterm.html')
+
+@app.route('/projects/stockfinal')
+def mlfin():
+    return render_template('stockfinal.html')
+
+
 @app.route('/notes')
 def blog():
     return render_template('notes.html')
