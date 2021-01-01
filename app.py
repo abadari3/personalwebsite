@@ -68,6 +68,9 @@ def home():
 def beta():
     return redirect('/')
 
+@app.route('/projects/stockpredict')
+def remove():
+    return redirect('/projects/stock')
 
 if __name__ == '__main__':
     app.run(debug = True)
