@@ -54,11 +54,6 @@ def mlmid():
 def mlfin():
     return render_template('stockfinal.html')
 
-
-@app.route('/notes')
-def blog():
-    return render_template('notes.html')
-
 # TEMPORARY, until google links the correct page when you search up my name.
 @app.route('/home')
 def home():
