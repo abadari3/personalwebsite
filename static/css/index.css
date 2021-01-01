@@ -431,6 +431,11 @@ hr.custom{
   border-radius: 25px;
 }
 
+div.sub p{
+  text-align: justify; 
+  text-justify: inter-word;
+}
+
 div#white.sub {
   background-color: white;
 }
