@@ -552,7 +552,7 @@ We have several potential approaches to this problem and may try a bunch of them
 <ol>
   <li>We will use SIFT (Scale Invariant Feature Transform) to find all of the useful features inside each frame of the video and map them to the same features of the previous frame. This will give us the necessary data to create an optical flow map of the image. Then, we should be able to deduce the speed from the change in magnitude of the optical flow. If the magnitude is mostly zero then, the car is probably stationary, and vice-versa. For this final step, we will utilize supervised machine learning to predict a scalar speed from an optical flow map.</li>
   <figure>
-    <img src="media/exopticalflowmap.png" style="width:100%">
+    <img src="https://github.com/abadari3/personalwebsite/raw/master/images/exopticalflowmap.png" style="width:100%">
     <figcaption>Example Optical Flow Map</figcaption>
   </figure>
   <li>We can also use SURF (Speeded up Robust features) which is several times faster (up for debate) than SIFT. It roughly follows the same steps as SIFT, except the implementation is kind of different. A more in depth description of the algorithm can be covered in <a target="_blank" href="https://people.ee.ethz.ch/~surf/eccv06.pdf">this paper.</a> The issue is it’s patented so there may be trouble using the algorithm.</li> <br>

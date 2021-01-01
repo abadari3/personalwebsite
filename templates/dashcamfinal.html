@@ -500,8 +500,6 @@
         </div>
         <br>
         <hr>
-        <img src="https://www.roboticsbusinessreview.com/wp-content/uploads/2019/08/AdobeStock_222100885.jpeg">
-
         <img src="https://i.pinimg.com/originals/ed/d3/3f/edd33f73975cbf964c863990f514247d.jpg">
         
         <img src="https://geospatialmedia.s3.amazonaws.com/wp-content/uploads/2017/08/LiDAR_detection-matrix_%C2%A9LeddarTech.jpg">
@@ -520,9 +518,6 @@
           </p>
 
           <figure>
-            <!-- <a target="_blank" href="https://www.youtube.com/watch?v=e-kVuEyt19A">
-              <img src="media/output.gif" style="width:100%">
-            </a> -->
             <iframe class="center" width="420" height="345" src="https://www.youtube.com/embed/e-kVuEyt19A">
             </iframe>
             <figcaption>True Speeds over Training Data</figcaption>
@@ -573,7 +568,7 @@
               <br>To build the CNN we utilized the architecture outlined in a paper written by NVIDIA. In the paper, they used the CNN to map input from a front facing dash camera to steering commands <a href="#collapsible-section-6">[1]</a>. We used a slightly adapted architecture to predict the speed of the car instead.
 
               <figure align="center">
-                <img class="center" src="media/nvidia.png" style="width:60%">
+                <img class="center" src="https://raw.githubusercontent.com/abadari3/personalwebsite/master/images/nvidia.png" style="width:60%">
                 <figcaption>CNN Architecture designed by NVIDIA.</figcaption>
               </figure><br>
 
@@ -602,7 +597,7 @@
             For our experimental setup, we had access to a training dataset (train.mp4) that comprised 20400 individual frames, and labelled speed data for every frame. Below are the true speeds of the car based on the labelled frames.<br><br>
 
             <figure align="center">
-              <img src="media/truespeed.png" style="width:100%">
+              <img src="https://raw.githubusercontent.com/abadari3/personalwebsite/master/images/truespeed.png" style="width:100%">
               <figcaption>True Speed at a Specific Frame.</figcaption>
             </figure><br>
 
@@ -618,11 +613,11 @@
               <br><br>
               Our MSE from this approach consistently averaged between 57 and 60. This result is relatively high. When there are lots of SIFT keypoints detected and paired between frames, homography can be more easily determined. However, in dark frames, proper homography can't be determined because SIFT cannot detect road markings reliably. <br><br>
               <figure align="center">
-                <img src="media/siftsuccess.png" style="width:100%">
+                <img src="https://raw.githubusercontent.com/abadari3/personalwebsite/master/images/siftsuccess.png" style="width:100%">
                 <figcaption>Successful Case</figcaption>
               </figure><br>
               <figure align="center">
-                <img src="media/siftfailure.png" style="width:100%">
+                <img src="https://raw.githubusercontent.com/abadari3/personalwebsite/master/images/siftfailure.png" style="width:100%">
                 <figcaption>Failure Case</figcaption>
               </figure><br>
 
@@ -694,9 +689,6 @@
             <div class="collapsible-content" id="collapsible-section-40">            
               <div align="center"><u>Bad Case of SIFT Implementation </u></div>
               <figure align="center">
-                <!-- <a target="_blank" href="https://www.youtube.com/watch?v=mbl6ttHtSFI&feature=youtu.be">
-                  <img src="media/siftbad.gif" style="width:100%">
-                </a> -->
                 <iframe class="center" width="420" height="345" src="https://www.youtube.com/embed/mbl6ttHtSFI">
                 </iframe>
                 <figcaption>Blue (Top-Left): True Speeds <br> Green (Top-Right): Predicted Speeds</figcaption>
@@ -704,9 +696,6 @@
 
               <div align="center"><u>Better Case of SIFT Implementation </u></div>
               <figure align="center">
-                <!-- <a target="_blank" href="https://www.youtube.com/watch?v=fF56I4QNeX4&feature=youtu.be">
-                  <img src="media/siftgood.gif" style="width:100%">
-                </a> -->
                 <iframe class="center" width="420" height="345" src="https://www.youtube.com/embed/fF56I4QNeX4">
                 </iframe>
                 <figcaption>Blue (Top-Left): True Speeds <br> Green (Top-Right): Predicted Speeds</figcaption>
@@ -728,14 +717,14 @@
               Below is an example of a cropped and resized image without further preprocessing, vs. optical flow preprocessing.
 
               <figure align="center">
-                <img src="media/oflow.png" style="width:100%">
+                <img src="https://raw.githubusercontent.com/abadari3/personalwebsite/master/images/oflow.png" style="width:100%">
               </figure><br>
 
               <div align="center"><u>MSE for Training vs. Validation</u></div>
               Here are how our MSE's improved each epoch for the training data set, and for the validation data set, using our CNN with Canny + Optical Flow Preprocessed inputs. Note that our values of 40-50 match those in our table for Canny + Optical (40.64).
 
               <figure align="center">
-                <img src="media/mse.png" style="width:100%">
+                <img src="https://raw.githubusercontent.com/abadari3/personalwebsite/master/images/mse.png" style="width:100%">
               </figure>
               <br>
             </div>

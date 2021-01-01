@@ -504,7 +504,7 @@
         <br>
         <hr>
         <img src="https://miro.medium.com/max/432/1*y0pXhfaTGmvfNwaGoHnW5w.jpeg">
-        <img src="images/AI-Stock.png">
+        <img src="https://raw.githubusercontent.com/abadari3/personalwebsite/master/images/AI-Stock.png">
         
 
         <p class="view"><a href="https://github.gatech.edu/abadari3/Predicting-Future-Stock-Market-Prices-using-a-Multilayer-Perceptron-Model">View the Project on GitHub <small>Predicting Future Stock Market Prices using a Multilayer Perceptron Model</small></a></p>
@@ -568,7 +568,7 @@
 
               To handle this data for each stock symbol, we wrote a Stock class (<a target="_blank" href="src/old_stock.py">stock.py</a>) that takes a ticker (i.e. ‘AAPL’) and a date range for the price data, which is held in a dataframe. The price data is downloaded upon initialization of a Stock object, and each of the technical indicators can be calculated on demand with a method.
               <figure>
-                <img src="images/appletechnicals.png" style="width:100%">
+                <img src="https://raw.githubusercontent.com/abadari3/personalwebsite/master/images/appletechnicals.png" style="width:100%">
                 <figcaption>Technical Indicators for AAPL Stock</figcaption>
               </figure>
             </div>
@@ -582,12 +582,12 @@
               Once we have the time series data of the closing prices as well as the technical indicators for the day, we can run each of them through an SVR. All the data is organized into an N by 11 array, where we have N day's market data, each day which has 11 features (its close price, and its 10 indicator values). In order to predict the next week's indicator values, we put each column into an SVR-RBF model, which would then be fit over an extended range to see predicted values. We find that using SVR to predict is ok for the next immediate day, but the model loses accuracy fast due to the size of the training data. We found through experimentation, that the RMSE errors are lowest when the SVR is performed on 30-60 days of data, while predicting no more than 5 days into the future. Below are two examples of possible outputs for the SVR-RBF prediction run on close prices.
 
               <figure>
-                <img src="images/inaccurate prediction.png" style="width:100%">
+                <img src="https://raw.githubusercontent.com/abadari3/personalwebsite/master/images/inaccurate prediction.png" style="width:100%">
                 <figcaption>An Inaccurate SVR Prediction of Future Stock Data</figcaption>
               </figure>
 
               <figure>
-                <img src="images/good prediction.png" style="width:100%">
+                <img src="https://raw.githubusercontent.com/abadari3/personalwebsite/master/images/good prediction.png" style="width:100%">
                 <figcaption>An Accurate SVR Prediction of Future Stock Data</figcaption>
             </figure>
 
@@ -618,7 +618,7 @@
                     </dd>
                     <dd>
                       <div align="center">
-                        <img src="images/sma.png">
+                        <img src="https://raw.githubusercontent.com/abadari3/personalwebsite/master/images/sma.png">
                       </div>
                     </dd>
                   </dl>
@@ -628,7 +628,7 @@
                     </dd>
                     <dd>
                       <div align="center">
-                        <img src="images/ema.png">
+                        <img src="https://raw.githubusercontent.com/abadari3/personalwebsite/master/images/ema.png">
                       </div>
                     </dd>
                   </dl>
@@ -638,7 +638,7 @@
                     </dd>
                     <dd>
                       <div align="center">
-                        <img src="images/mom.png">
+                        <img src="https://raw.githubusercontent.com/abadari3/personalwebsite/master/images/mom.png">
                       </div>
                     </dd>
                   </dl>
@@ -648,7 +648,7 @@
                     </dd>
                     <dd>
                       <div align="center">
-                        <img src="images/stck.png">
+                        <img src="https://raw.githubusercontent.com/abadari3/personalwebsite/master/images/stck.png">
                       </div>
                     </dd>
                   </dl>
@@ -658,7 +658,7 @@
                     </dd>
                     <dd>
                       <div align="center">
-                        <img src="images/stcd.png">
+                        <img src="https://raw.githubusercontent.com/abadari3/personalwebsite/master/images/stcd.png">
                       </div>
                     </dd>
                   </dl>
@@ -669,7 +669,7 @@
                     </dd>
                     <dd>
                       <div align="center">
-                        <img src="images/macd.png">
+                        <img src="https://raw.githubusercontent.com/abadari3/personalwebsite/master/images/macd.png">
                       </div>
                     </dd>
                   </dl>
@@ -679,7 +679,7 @@
                     </dd>
                     <dd>
                       <div align="center">
-                        <img src="images/rsi.png">
+                        <img src="https://raw.githubusercontent.com/abadari3/personalwebsite/master/images/rsi.png">
                       </div>
                     </dd>
                   </dl>
@@ -689,7 +689,7 @@
                     </dd>
                     <dd>
                       <div align="center">
-                        <img src="images/williams.png">
+                        <img src="https://raw.githubusercontent.com/abadari3/personalwebsite/master/images/williams.png">
                       </div>
                     </dd>
                   </dl>
@@ -699,7 +699,7 @@
                     </dd>
                     <dd>
                       <div align="center">
-                        <img src="images/ado.png">
+                        <img src="https://raw.githubusercontent.com/abadari3/personalwebsite/master/images/ado.png">
                       </div>
                     </dd>
                   </dl>
@@ -709,7 +709,7 @@
                     </dd>
                     <dd>
                       <div align="center">
-                        <img src="images/cci.png">
+                        <img src="https://raw.githubusercontent.com/abadari3/personalwebsite/master/images/cci.png">
                       </div>
                     </dd>
                   </dl>
@@ -727,7 +727,7 @@
               Given a time-series daily data for a period of N days, I want to predict the future values, based on the data so far. When constructing my SVR, we had to decide what kind of model we would use to fit my data, and the choices we had were linear, polynomial, or RBF. In the case of a linear model, modeling and predicting prices on a linear model was impractical, as over longer time ranges, the price increases and then decreases, and changes directions many times. A linear model would not capture this complexity. A polynomial model was good, but then the issue then became choosing the degree of the polynomial, and that too could drastically change. Additionally, a polynomial model might fit well some of the time, but there is nothing inherently tying the movements of a stock to any polynomial function. <br><br>
 
               <div align="center">
-                <figure><img src="images/rbf.png"></figure>
+                <figure><img src="https://raw.githubusercontent.com/abadari3/personalwebsite/master/images/rbf.png"></figure>
               </div><br>
 
               The reason RBF is a good model, however, is that RBF is a Radial Basis Function, that represents behavior along a gaussian distribution. Given the stock price at any day, the movements happen along a gaussian, with movements further from the mean being more unlikely, and movements close to the mean being more likely. <br><br>
@@ -736,7 +736,7 @@
               
               <!-- linear, rbf, polynomial graph -->
               <div align="center">
-                <figure><img src="images/model_comp.png" style="width:100%"></figure>
+                <figure><img src="https://raw.githubusercontent.com/abadari3/personalwebsite/master/images/model_comp.png" style="width:100%"></figure>
               </div>
               <div id="days" style="color:white"></div>
               When predicting prices with an SVR, since the RBF function behaves along a Gaussian space, the strength of the prediction decreases the further into the future we go. From testing many values, of the number of days in the future to predict, around 14 days the predictions level out to a flat line. When running an RMSE test on many different days of prediction, using an SVR for 1-2 day predictions clearly had the highest change of success, and lowest mean RMSE. However, for visualization purposes, we are trying to estimate the next 5 days. Another reason to aim for 5 days instead of 1, is that the SVR many times would predict the next immediate day incorrectly, but still capture the correct general trend for the coming week.
@@ -744,30 +744,30 @@
               <!-- graph showing differences in number of days for SVR predict -->
               
               <div align="center">
-                <figure><img src="images/2day.png" style="width:100%">
+                <figure><img src="https://raw.githubusercontent.com/abadari3/personalwebsite/master/images/2day.png" style="width:100%">
                 <figcaption>2-day SVR Prediction</figcaption></figure>
               </div>
               <div align="center">
-                <figure><img src="images/5day.png" style="width:100%">
+                <figure><img src="https://raw.githubusercontent.com/abadari3/personalwebsite/master/images/5day.png" style="width:100%">
                 <figcaption>5-day SVR Prediction</figcaption></figure>
               </div>
               <div align="center">
-                <figure><img src="images/10day.png" style="width:100%">
+                <figure><img src="https://raw.githubusercontent.com/abadari3/personalwebsite/master/images/10day.png" style="width:100%">
                 <figcaption>10-day SVR Prediction</figcaption></figure>
               </div>
               <div align="center">
-                <figure><img src="images/15day.png" style="width:100%">
+                <figure><img src="https://raw.githubusercontent.com/abadari3/personalwebsite/master/images/15day.png" style="width:100%">
                 <figcaption>15-day SVR Prediction</figcaption></figure>
               </div>
               <div align="center">
-                <figure><img src="images/20day.png" style="width:100%">
+                <figure><img src="https://raw.githubusercontent.com/abadari3/personalwebsite/master/images/20day.png" style="width:100%">
                 <figcaption>20-day SVR Prediction</figcaption></figure>
               </div>
               <br><br>
               
               <!-- Stage 1 / 2 Diagram -->
               <div align="center">
-                <figure><img src="images/2stage.png" style="width:100%"></figure>
+                <figure><img src="https://raw.githubusercontent.com/abadari3/personalwebsite/master/images/2stage.png" style="width:100%"></figure>
               </div><br>
 
               Seeing how the SVR is behaving on the regular stock close price, we are going to use an SVR with an RBF model to fit and then predict technical indicator values instead of the closing stock price itself. Currently, from the MLP layout diagram above, we have completed Stage 1, with the Data Preparation for Prediction Models. 
@@ -788,15 +788,15 @@
             <br>
             <div class="collapsible-content" id="collapsible-section-59">
               Below are the example results of the preprocessing of the stock data into technical indicator values:
-              <figure><img src="images/resultsraw.png" style="width:100%"></figure>
-              <figure><img src="images/rma.png" style="width:100%"></figure>
-              <figure><img src="images/rmacd.png" style="width:100%"></figure>
-              <figure><img src="images/rmom.png" style="width:100%"></figure>
-              <figure><img src="images/rstc.png" style="width:100%"></figure>
-              <figure><img src="images/rrsi.png" style="width:100%"></figure>
-              <figure><img src="images/rwilliams.png" style="width:100%"></figure>
-              <figure><img src="images/rado.png" style="width:100%"></figure>
-              <figure><img src="images/rcci.png" style="width:100%"></figure>
+              <figure><img src="https://raw.githubusercontent.com/abadari3/personalwebsite/master/images/resultsraw.png" style="width:100%"></figure>
+              <figure><img src="https://raw.githubusercontent.com/abadari3/personalwebsite/master/images/rma.png" style="width:100%"></figure>
+              <figure><img src="https://raw.githubusercontent.com/abadari3/personalwebsite/master/images/rmacd.png" style="width:100%"></figure>
+              <figure><img src="https://raw.githubusercontent.com/abadari3/personalwebsite/master/images/rmom.png" style="width:100%"></figure>
+              <figure><img src="https://raw.githubusercontent.com/abadari3/personalwebsite/master/images/rstc.png" style="width:100%"></figure>
+              <figure><img src="https://raw.githubusercontent.com/abadari3/personalwebsite/master/images/rrsi.png" style="width:100%"></figure>
+              <figure><img src="https://raw.githubusercontent.com/abadari3/personalwebsite/master/images/rwilliams.png" style="width:100%"></figure>
+              <figure><img src="https://raw.githubusercontent.com/abadari3/personalwebsite/master/images/rado.png" style="width:100%"></figure>
+              <figure><img src="https://raw.githubusercontent.com/abadari3/personalwebsite/master/images/rcci.png" style="width:100%"></figure>
 
             </div>
 
@@ -817,30 +817,30 @@
             <div class="collapsible-content" id="collapsible-section-58">
               The main parameter that comes to mind when it comes to predicting future values is "How many days into the future can I predict?". As we saw in the <a href="#days">methods</a> section, we are aiming to estimate about 5 days into the future. In order to test this, I used an SVR to predict every n days in 2020 so far, and then calculated the average RMSE for each n. As we see below, we want to be as close to 1 day in the future as possible, and anything above 5 is relatively equally useless.<br><br>
 
-              <figure><img src="images/rmse.png" style="width:100%"></figure>
+              <figure><img src="https://raw.githubusercontent.com/abadari3/personalwebsite/master/images/rmse.png" style="width:100%"></figure>
 
               Describe how we are evaluating the effectiveness of the SVR model, and the many parameters that go into it, like the range of dates, C value, gamma value, why RBF, etc. 
               For the other parameters we deal with when doing SVR-RBF, we have gamma and C. Gamma is an analogue to the inverse of the standard deviation when talking about distributions. A lower gamma value means that when predicting future values, the predictions are more volatile, can go further away from the previous value. A higher gamma value means the movement is slower and tends to stay near its older values. (When it comes to stock prediction, raising our gamma value during times when volume is low is a possible improvement in the model). A higher gamma level also means we are able to predict with reliability further into the future.<br><br>
               
               The other parameter C behaves as the regularization parameter in the SVM. For higher values of C, a smaller margin of error is accepted when finding the decision function, and for lower c a higher margin of error is acceptable. Below is an example of the effects of these two parameters from SciKit-Learn.
 
-              <figure><img src="images/gammac.png" style="width:100%"><figcaption><a target="_blank" href="https://scikit-learn.org/stable/auto_examples/svm/plot_rbf_parameters.html">Effects of RBF SVM Parameters</a></figcaption></figure><br>
+              <figure><img src="https://raw.githubusercontent.com/abadari3/personalwebsite/master/images/gammac.png" style="width:100%"><figcaption><a target="_blank" href="https://scikit-learn.org/stable/auto_examples/svm/plot_rbf_parameters.html">Effects of RBF SVM Parameters</a></figcaption></figure><br>
 
               <br><br>
               For the technical indicator front, many of the technical indicators have a number of days parameter that can be changed. As of now, we will follow the same numbers as used in the Patel study, but changing these parameters and studying their effects could be a future point of research. Let's see some results of prediction vs. actual for the technical indicators as well as the stock prices itself. 
 
-              <figure><img src="images/praw.png" style="width:100%"><figcaption>Raw Data</figcaption></figure><br><br>
-              <figure><img src="images/psma.png" style="width:100%"><figcaption>Simple Moving Average</figcaption></figure>
-              <figure><img src="images/pema.png" style="width:100%"><figcaption>Exponential Moving Average</figcaption></figure><br><br>
-              <figure><img src="images/pmacd.png" style="width:100%"><figcaption>MACD</figcaption></figure>
-              <figure><img src="images/pmacd2.png" style="width:100%"><figcaption>MACD Signal Line</figcaption></figure><br><br>
-              <figure><img src="images/pmom.png" style="width:100%"><figcaption>Momentum</figcaption></figure><br><br>
-              <figure><img src="images/pstck.png" style="width:100%"><figcaption>Stochastic K%</figcaption></figure>
-              <figure><img src="images/pstcd.png" style="width:100%"><figcaption>Stochastic D%</figcaption></figure><br><br>
-              <figure><img src="images/prsi.png" style="width:100%"><figcaption>Relative Strength Index</figcaption></figure><br><br>
-              <figure><img src="images/pwr.png" style="width:100%"><figcaption>Larry WIlliams’ R%</figcaption></figure><br><br>
-              <figure><img src="images/pado.png" style="width:100%"><figcaption>Accumulation/Distribution Oscillators</figcaption></figure><br><br>
-              <figure><img src="images/pcci.png" style="width:100%"><figcaption>Commodity Channel Index</figcaption></figure>
+              <figure><img src="https://raw.githubusercontent.com/abadari3/personalwebsite/master/images/praw.png" style="width:100%"><figcaption>Raw Data</figcaption></figure><br><br>
+              <figure><img src="https://raw.githubusercontent.com/abadari3/personalwebsite/master/images/psma.png" style="width:100%"><figcaption>Simple Moving Average</figcaption></figure>
+              <figure><img src="https://raw.githubusercontent.com/abadari3/personalwebsite/master/images/pema.png" style="width:100%"><figcaption>Exponential Moving Average</figcaption></figure><br><br>
+              <figure><img src="https://raw.githubusercontent.com/abadari3/personalwebsite/master/images/pmacd.png" style="width:100%"><figcaption>MACD</figcaption></figure>
+              <figure><img src="https://raw.githubusercontent.com/abadari3/personalwebsite/master/images/pmacd2.png" style="width:100%"><figcaption>MACD Signal Line</figcaption></figure><br><br>
+              <figure><img src="https://raw.githubusercontent.com/abadari3/personalwebsite/master/images/pmom.png" style="width:100%"><figcaption>Momentum</figcaption></figure><br><br>
+              <figure><img src="https://raw.githubusercontent.com/abadari3/personalwebsite/master/images/pstck.png" style="width:100%"><figcaption>Stochastic K%</figcaption></figure>
+              <figure><img src="https://raw.githubusercontent.com/abadari3/personalwebsite/master/images/pstcd.png" style="width:100%"><figcaption>Stochastic D%</figcaption></figure><br><br>
+              <figure><img src="https://raw.githubusercontent.com/abadari3/personalwebsite/master/images/prsi.png" style="width:100%"><figcaption>Relative Strength Index</figcaption></figure><br><br>
+              <figure><img src="https://raw.githubusercontent.com/abadari3/personalwebsite/master/images/pwr.png" style="width:100%"><figcaption>Larry WIlliams’ R%</figcaption></figure><br><br>
+              <figure><img src="https://raw.githubusercontent.com/abadari3/personalwebsite/master/images/pado.png" style="width:100%"><figcaption>Accumulation/Distribution Oscillators</figcaption></figure><br><br>
+              <figure><img src="https://raw.githubusercontent.com/abadari3/personalwebsite/master/images/pcci.png" style="width:100%"><figcaption>Commodity Channel Index</figcaption></figure>
 
 
               <br><br>

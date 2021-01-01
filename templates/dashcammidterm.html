@@ -501,8 +501,6 @@
         </div>
         <br>
         <hr>
-        <img src="https://www.roboticsbusinessreview.com/wp-content/uploads/2019/08/AdobeStock_222100885.jpeg">
-
         <img src="https://i.pinimg.com/originals/ed/d3/3f/edd33f73975cbf964c863990f514247d.jpg">
         
         <img src="https://geospatialmedia.s3.amazonaws.com/wp-content/uploads/2017/08/LiDAR_detection-matrix_%C2%A9LeddarTech.jpg">
@@ -521,7 +519,7 @@
           </p>
 
           <figure>
-            <img src="media/midtermteaser2.png" style="width:100%">
+            <img src="https://raw.githubusercontent.com/abadari3/personalwebsite/master/images/midtermteaser2.png" style="width:100%">
             <figcaption>The Two Types of Preprocessing and Optical Flow.</figcaption>
           </figure><br>
           <hr>
@@ -563,7 +561,7 @@
               <br>To build the CNN we utilized the architecture outlined in a paper written by NVIDIA. In the paper, they used the CNN to map input from a front facing dash camera to steering commands <a href="#collapsible-section-6">[1]</a>. We used a slightly adapted architecture to predict the speed of the car instead.
 
               <figure align="center">
-                <img src="media/nvidia.png" style="width:60%">
+                <img src="https://raw.githubusercontent.com/abadari3/personalwebsite/master/images/nvidia.png" style="width:60%">
                 <figcaption>CNN Architecture designed by NVIDIA.</figcaption>
               </figure><br>
 
@@ -579,7 +577,7 @@
             For our experimental setup, we had access to a training dataset (train.mp4) that comprised 20400 individual frames, and labelled speed data for every frame. Below are the true speeds of the car based on the labelled frames.<br><br>
 
             <figure align="center">
-              <img src="media/truespeed.png" style="width:100%">
+              <img src="https://raw.githubusercontent.com/abadari3/personalwebsite/master/images/truespeed.png" style="width:100%">
               <figcaption>True Speed at a Specific Frame.</figcaption>
             </figure><br>
 
@@ -621,21 +619,21 @@
               In the successful example below, lines across two frames indicate matched SIFT key-points. They have been filtered to only contain lane-based keypoints.
 
               <figure align="center">
-                <img src="media/lanesuccess.png" style="width:100%">
+                <img src="https://raw.githubusercontent.com/abadari3/personalwebsite/master/images/lanesuccess.png" style="width:100%">
               </figure><br>
 
               <div align="center"><u>Failed Lane Detection and Filtering </u></div>
               In these frames, the canny edge was not able to come up with any lane markings because they are far away and faint.
 
               <figure align="center">
-                <img src="media/lanefail.png" style="width:100%">
+                <img src="https://raw.githubusercontent.com/abadari3/personalwebsite/master/images/lanefail.png" style="width:100%">
               </figure><br>
 
               <div align="center"><u>Fail Over Region Filtering </u></div>
               Since lane filtering was not successful, key-points have been filtered by the predefined region which still contain useful road markings.
 
               <figure align="center">
-                <img src="media/lanefailover.png" style="width:100%">
+                <img src="https://raw.githubusercontent.com/abadari3/personalwebsite/master/images/lanefailover.png" style="width:100%">
               </figure>
               <br><br>
             </div>
@@ -647,21 +645,21 @@
               Below is an example of an original frame, vs the cropped and resized image used in the CNN.
 
               <figure align="center">
-                <img src="media/ogresize.png" style="width:100%">
+                <img src="https://raw.githubusercontent.com/abadari3/personalwebsite/master/images/ogresize.png" style="width:100%">
               </figure><br>
 
               <div align="center"><u>Good Results for Optical Flow</u></div>
               Here the optical flows are brightened enough and is showcasing the motion really well of the 2 consecutive frames, especially all the lanes. A higher threshold from the canny edge detector, however, should be used for better results.
 
               <figure align="center">
-                <img src="media/flowgood.png" style="width:100%">
+                <img src="https://raw.githubusercontent.com/abadari3/personalwebsite/master/images/flowgood.png" style="width:100%">
               </figure><br>
 
               <div align="center"><u>Bad Results for Optical Flow</u></div>
               Bad Results: Here, the optical flow is really light and kind of not strong. This probably occurred because the lanes were not highlighted properly by the canny edge detector among the consecutive frames..
 
               <figure align="center">
-                <img src="media/flowbad.png" style="width:100%">
+                <img src="https://raw.githubusercontent.com/abadari3/personalwebsite/master/images/flowbad.png" style="width:100%">
               </figure>
               <br>
             </div>
