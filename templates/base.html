@@ -41,29 +41,24 @@
                 els[i].classList.toggle("dark")
             }
 
-            try {
-                if(document.getElementById("tex").src == "https://raw.githubusercontent.com/abadari3/personalwebsite/master/images/tex%20copy.png"){
-                    document.getElementById("tex").src = "https://raw.githubusercontent.com/abadari3/personalwebsite/master/images/tex.png"
+            tex = document.getElementById("tex")
+            if(tex != null){
+                if(tex.src == "https://raw.githubusercontent.com/abadari3/personalwebsite/master/images/tex%20copy.png"){
+                    tex.src = "https://raw.githubusercontent.com/abadari3/personalwebsite/master/images/tex.png"
                 } else {
-                    document.getElementById("tex").src = "https://raw.githubusercontent.com/abadari3/personalwebsite/master/images/tex%20copy.png"
+                    tex.src = "https://raw.githubusercontent.com/abadari3/personalwebsite/master/images/tex%20copy.png"
                 }
             }
-            catch(err) {
-                console.log("no tex image found.")
-            }
 
-            try {
-                if(document.getElementById("404img").src == "https://github.com/abadari3/personalwebsite/raw/master/images/404-light.jpg"){
-                    document.getElementById("404img").src = "https://github.com/abadari3/personalwebsite/raw/master/images/404-dark.jpg"
+            errimg = document.getElementById("404img")
+            if(errimg != null) {
+                if(errimg.src == "https://github.com/abadari3/personalwebsite/raw/master/images/404-light.jpg"){
+                    errimg.src = "https://github.com/abadari3/personalwebsite/raw/master/images/404-dark.jpg"
                 } else {
-                    document.getElementById("404img").src = "https://github.com/abadari3/personalwebsite/raw/master/images/404-light.jpg"
+                    errimg.src = "https://github.com/abadari3/personalwebsite/raw/master/images/404-light.jpg"
                 }
 
             }
-            catch(err) {
-                console.log("no tex image found.")
-            }
-
         }
     </script>
     {% block scripts %}{% endblock %}
