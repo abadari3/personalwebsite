@@ -522,6 +522,16 @@ div.links p a {
   float: right;
 }
 
+#darktogglesmall {
+  max-width: 50px; 
+  /* display: none;  */
+  float: right;
+  position: fixed;
+  right: 10px;
+  top: 10px;
+  border-radius: 100%;
+}
+
 
 @media print, screen and (max-width: 980px) {
   hr {
@@ -558,6 +568,10 @@ div.links p a {
 @media print, screen and (max-width: 780px) {
   #darktoggle {
     display: none;
+  }
+
+  #darktogglesmall {
+    display: flex;
   }
 
   div.wrapper {
@@ -645,7 +659,7 @@ div.links p a {
   }
   
   body {
-    padding:15px;
+    padding:10px;
   }
 
   header ul {
@@ -665,12 +679,6 @@ div.links p a {
 @media print, screen and (max-width: 360px) {
   .navbutton {
     font-size: 10px;
-  }
-  .resumebutton {
-    padding-right: 0px;
-    padding-left: 0px;
-    margin-left: 0px;
-    margin-right: 0px;
   }
 }
 

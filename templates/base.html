@@ -68,6 +68,15 @@
                     darktoggle.src = "https://github.com/abadari3/personalwebsite/raw/master/images/lightmodeimg.png"
                 }
             }
+
+            darktogglesmall = document.getElementById("darktogglesmall")
+            if(darktogglesmall != null) {
+                if(darktogglesmall.src == "https://github.com/abadari3/personalwebsite/raw/master/images/lightmodeimg.png"){
+                    darktogglesmall.src = "https://github.com/abadari3/personalwebsite/raw/master/images/darkmodeimg.png"
+                } else {
+                    darktogglesmall.src = "https://github.com/abadari3/personalwebsite/raw/master/images/lightmodeimg.png"
+                }
+            }
         }
     </script>
     {% block scripts %}{% endblock %}
