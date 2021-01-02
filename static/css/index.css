@@ -516,7 +516,11 @@ div.links p a {
   color: white;
 }
 
-
+#darktoggle {
+  max-width: 65px; 
+  display: flex; 
+  float: right;
+}
 
 
 @media print, screen and (max-width: 980px) {
@@ -552,6 +556,9 @@ div.links p a {
 }
 
 @media print, screen and (max-width: 780px) {
+  #darktoggle {
+    display: none;
+  }
 
   div.wrapper {
     width:auto;
@@ -633,6 +640,10 @@ div.links p a {
 }
 
 @media print, screen and (max-width: 480px) {
+  .navbutton {
+    font-size: 12px;
+  }
+  
   body {
     padding:15px;
   }
@@ -648,6 +659,18 @@ div.links p a {
   div.sub p{
     text-align: justify; 
     text-justify: inter-word;
+  }
+}
+
+@media print, screen and (max-width: 360px) {
+  .navbutton {
+    font-size: 10px;
+  }
+  .resumebutton {
+    padding-right: 0px;
+    padding-left: 0px;
+    margin-left: 0px;
+    margin-right: 0px;
   }
 }
 
