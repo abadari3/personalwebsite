@@ -22,7 +22,8 @@
         </div>
         
         <section>
-            <div class='sub' style="background-color: white;">&nbsp;</div>
+            <button onclick="myFunction()">Toggle dark mode</button>
+            <div class='sub' style="background-color: transparent;">&nbsp;</div>
             {% block body %}{% endblock %} 
         </section>
 
@@ -31,6 +32,16 @@
         </div>
     </div>
     <script src="javascripts/scale.fix.js"></script>
+    <script>
+        function myFunction() {
+           var element = document.body;
+           element.classList.toggle("dark-mode");
+           els = document.getElementsByTagName("h3")
+            for(var i = 0; i < els.length; i++){
+                els[i].classList.toggle("dark")
+            }
+        }
+    </script>
     {% block scripts %}{% endblock %}
 </body>
 </html>
