@@ -8,7 +8,7 @@
     <link rel="stylesheet" href="static\css\index.css">
     <meta name="apple-mobile-web-app-capable" content="yes" />
     <meta name="apple-mobile-web-app-status-bar-style" content="white" id="mymetatag"/>
-    <link rel="apple-touch-icon" href="https://raw.githubusercontent.com/abadari3/personalwebsite/master/images/me.png"/>
+    <link rel="apple-touch-icon" id="icon" href="https://raw.githubusercontent.com/abadari3/personalwebsite/master/images/iconlight.png"/>
 
     {% block css %}{% endblock %}
     {% block head %}{% endblock %}
@@ -86,6 +86,13 @@
                 metatag.setAttribute("content", "black");
             } else {
                 metatag.setAttribute("content", "white");
+            }
+
+            icon = document.getElementById("icon")
+            if(icon.href == "https://raw.githubusercontent.com/abadari3/personalwebsite/master/images/iconlight.png"){
+                icon.href = "https://raw.githubusercontent.com/abadari3/personalwebsite/master/images/icondark.png"
+            } else {
+                icon.href = "https://raw.githubusercontent.com/abadari3/personalwebsite/master/images/iconlight.png"
             }
         }
     </script>
