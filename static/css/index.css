@@ -580,7 +580,15 @@ div.links p a {
   }
 
   img.me {
-    max-width:25%;
+    float: left;
+    position: fixed;
+    left: 10px;
+    top: 10px;
+    max-width:50px;
+  }
+
+  h1 {
+    font-size: 24px;
   }
 
   section, footer {
@@ -654,6 +662,10 @@ div.links p a {
 }
 
 @media print, screen and (max-width: 480px) {
+  div.sub p{
+    text-align:center; 
+  }
+  
   .navbutton {
     font-size: 12px;
   }
@@ -668,11 +680,6 @@ div.links p a {
 
   header li, header ul li + li + li {
     width:33%;
-  }
-
-  div.sub p{
-    text-align: justify; 
-    text-justify: inter-word;
   }
 }
 
