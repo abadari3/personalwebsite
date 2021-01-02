@@ -677,6 +677,10 @@ div.links p a {
   header li, header ul li + li + li {
     width:33%;
   }
+  div.sub p{
+    text-align: justify; 
+    text-justify: inter-word;
+  }
 }
 
 @media print, screen and (max-width: 360px) {
