@@ -40,6 +40,13 @@
             for(var i = 0; i < els.length; i++){
                 els[i].classList.toggle("dark")
             }
+            if(document.getElementById("tex").src == "https://raw.githubusercontent.com/abadari3/personalwebsite/master/images/tex%20copy.png"){
+                document.getElementById("tex").src = "https://raw.githubusercontent.com/abadari3/personalwebsite/master/images/tex.png"
+            } else {
+                document.getElementById("tex").src = "https://raw.githubusercontent.com/abadari3/personalwebsite/master/images/tex%20copy.png"
+            }
+
+
         }
     </script>
     {% block scripts %}{% endblock %}
