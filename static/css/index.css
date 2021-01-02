@@ -582,8 +582,8 @@ div.links p a {
   img.me {
     float: left;
     position: fixed;
-    left: 10px;
     top: 10px;
+    left: 10px;
     max-width:50px;
   }
 
