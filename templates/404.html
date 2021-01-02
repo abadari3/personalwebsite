@@ -520,7 +520,21 @@ div.links p a {
   color: white;
 }
 
+#darktoggle {
+  max-width: 65px; 
+  display: flex; 
+  float: right;
+}
 
+#darktogglesmall {
+  max-width: 50px; 
+  /* display: none;  */
+  float: right;
+  position: fixed;
+  right: 10px;
+  top: 10px;
+  border-radius: 100%;
+}
 
 
 @media print, screen and (max-width: 980px) {
@@ -556,6 +570,13 @@ div.links p a {
 }
 
 @media print, screen and (max-width: 780px) {
+  #darktoggle {
+    display: none;
+  }
+
+  #darktogglesmall {
+    display: flex;
+  }
 
   div.wrapper {
     width:auto;
@@ -563,7 +584,15 @@ div.links p a {
   }
 
   img.me {
-    max-width:25%;
+    float: left;
+    position: fixed;
+    top: 10px;
+    left: 10px;
+    max-width:50px;
+  }
+
+  h1 {
+    font-size: 24px;
   }
 
   section, footer {
@@ -637,8 +666,12 @@ div.links p a {
 }
 
 @media print, screen and (max-width: 480px) {
+  .navbutton {
+    font-size: 12px;
+  }
+  
   body {
-    padding:15px;
+    padding:10px;
   }
 
   header ul {
@@ -648,10 +681,19 @@ div.links p a {
   header li, header ul li + li + li {
     width:33%;
   }
-
   div.sub p{
     text-align: justify; 
     text-justify: inter-word;
+  }
+}
+
+@media print, screen and (max-width: 360px) {
+  div.sub p{
+    text-align:center; 
+  }
+  
+  .navbutton {
+    font-size: 10px;
   }
 }
 
