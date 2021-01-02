@@ -7,7 +7,7 @@
 
     <link rel="stylesheet" href="static\css\index.css">
     <meta name="apple-mobile-web-app-capable" content="yes" />
-    <meta name="apple-mobile-web-app-status-bar-style" content="white" id="mymetatag"/>
+    <meta name="apple-mobile-web-app-status-bar-style" content="default" id="mymetatag"/>
     <link rel="apple-touch-icon" id="icon" href="https://raw.githubusercontent.com/abadari3/personalwebsite/master/images/iconlight.png"/>
 
     {% block css %}{% endblock %}
@@ -82,10 +82,10 @@
             }
 
             metatag = document.getElementById("mymetatag")
-            if(metatag.content == 'white'){
+            if(metatag.content == 'default'){
                 metatag.setAttribute("content", "black");
             } else {
-                metatag.setAttribute("content", "white");
+                metatag.setAttribute("content", "default");
             }
 
             icon = document.getElementById("icon")
