@@ -22,8 +22,7 @@
         </div>
         
         <section>
-            <button onclick="myFunction()" style="float: right">Toggle dark mode</button>
-            <img src=>
+            <img id="darktoggle" src="https://github.com/abadari3/personalwebsite/raw/master/images/lightmodeimg.png" style="max-width: 65px; align-self: right;" onclick="myFunction()">
             <div class='sub' style="background-color: transparent;">&nbsp;</div>
             {% block body %}{% endblock %} 
         </section>
@@ -58,7 +57,15 @@
                 } else {
                     errimg.src = "https://github.com/abadari3/personalwebsite/raw/master/images/404-light.jpg"
                 }
+            }
 
+            darktoggle = document.getElementById("darktoggle")
+            if(darktoggle != null) {
+                if(darktoggle.src == "https://github.com/abadari3/personalwebsite/raw/master/images/lightmodeimg.png"){
+                    darktoggle.src = "https://github.com/abadari3/personalwebsite/raw/master/images/darkmodeimg.png"
+                } else {
+                    darktoggle.src = "https://github.com/abadari3/personalwebsite/raw/master/images/lightmodeimg.png"
+                }
             }
         }
     </script>
