@@ -83,11 +83,11 @@
 
             icon = document.getElementById("icon")
             if(icon.href == "https://raw.githubusercontent.com/abadari3/personalwebsite/master/images/iconlight.png"){
-                document.cookie = "theme=dark" + "; path=/;";
+                document.cookie = "theme=dark" + "; max-age=31536000; path=/;";
                 icon.href = "https://raw.githubusercontent.com/abadari3/personalwebsite/master/images/icondark.png"
             } else {
                 icon.href = "https://raw.githubusercontent.com/abadari3/personalwebsite/master/images/iconlight.png"
-                document.cookie = "theme=light" + "; path=/;";
+                document.cookie = "theme=light" + "; max-age=31536000; path=/;";
             }
 
         }
