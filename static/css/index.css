@@ -662,10 +662,6 @@ div.links p a {
 }
 
 @media print, screen and (max-width: 480px) {
-  div.sub p{
-    text-align:center; 
-  }
-  
   .navbutton {
     font-size: 12px;
   }
@@ -684,6 +680,10 @@ div.links p a {
 }
 
 @media print, screen and (max-width: 360px) {
+  div.sub p{
+    text-align:center; 
+  }
+  
   .navbutton {
     font-size: 10px;
   }
