@@ -2,7 +2,7 @@
 
 {% block css %}
 <style>
-      /*!
+    /*!
  * GitHub Light v0.4.1
  * Copyright (c) 2012 - 2017 GitHub, Inc.
  * Licensed under MIT (https://github.com/primer/github-syntax-theme-generator/blob/master/LICENSE)
@@ -188,8 +188,19 @@ body {
 
 h1, h2, h3, h4, h5, h6 {
   /* color:#222; */
-  color:black;
   margin:0 0 20px;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  /* color:#222; */
+  margin:0 0 20px;
+}
+
+button.collapsible h3 {
+  color: black
+}
+button.collapsible h3.dark {
+  color: white;
 }
 
 p, ul, ol, table, pre, dl {
@@ -202,16 +213,6 @@ h1, h2, h3 {
 
 h1 {
   font-size:28px;
-}
-
-h2 {
-  /* color:#393939; */
-  color:black;
-}
-
-h3, h4, h5, h6 {
-  /* color:#494949; */
-  color:black;
 }
 
 a {
@@ -293,7 +294,7 @@ header {
   width:200px;
   float:left;
   position:fixed;
-  background-color: white;
+  /* background-color: white; */
   -webkit-font-smoothing:subpixel-antialiased;
 }
 
@@ -301,7 +302,7 @@ header ul {
   list-style:none;
   height:40px;
   padding:0;
-  background: #f4f4f4;
+  /* background: #f4f4f4; */
   border-radius:5px;
   border:1px solid #e0e0e0;
   width:270px;
@@ -409,8 +410,6 @@ figcaption {
 .nav a {
   color:royalblue;
   padding: 10px 10px;
-  background-color: white;
-  
 }
 
 img.social {
@@ -516,7 +515,19 @@ div.links p a {
 
 }
 
+.dark-mode {
+  background-color: black;
+  color: white;
+}
+
+
+
+
 @media print, screen and (max-width: 980px) {
+  hr {
+    color: transparent
+  }
+
   header {
     width:198px;
     float:left;
@@ -571,11 +582,11 @@ div.links p a {
     float:center;
     width:auto;
     display: block;
-    background-color: white;
+    /* background-color: white; */
   }
 
   section {
-    border:1px solid #e5e5e5;
+    border:1px solid transparent;
     border-width:1px 0;
     padding:20px 0;
     margin:0 0 20px;
@@ -663,7 +674,7 @@ div.links p a {
 {% block body %}
 <div align='center'>
     <h1 style="font-size:70px;">404</h1>
-    <img src="https://media.istockphoto.com/vectors/desert-graphic-black-white-landscape-dead-tree-sketch-illustration-vector-id1260317566?k=6&m=1260317566&s=612x612&w=0&h=qua0klJlYf-deIPqWvRbXFHJcMRKUJOIc5o2vsaUpTk=" width="100%">
+    <img id="404img" src="https://media.istockphoto.com/vectors/desert-graphic-black-white-landscape-dead-tree-sketch-illustration-vector-id1260317566?k=6&m=1260317566&s=612x612&w=0&h=qua0klJlYf-deIPqWvRbXFHJcMRKUJOIc5o2vsaUpTk=" width="100%">
     
 </div>
 {% endblock %}
