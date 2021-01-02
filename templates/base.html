@@ -7,7 +7,7 @@
 
     <link rel="stylesheet" href="static\css\index.css">
     <meta name="apple-mobile-web-app-capable" content="yes" />
-    <meta name="apple-mobile-web-app-status-bar-style" content="default" id="mymetatag"/>
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent"/>
     <link rel="apple-touch-icon" id="icon" href="https://raw.githubusercontent.com/abadari3/personalwebsite/master/images/iconlight.png"/>
 
     {% block css %}{% endblock %}
@@ -79,13 +79,6 @@
                 } else {
                     darktogglesmall.src = "https://github.com/abadari3/personalwebsite/raw/master/images/lightmodeimg.png"
                 }
-            }
-
-            metatag = document.getElementById("mymetatag")
-            if(metatag.content == 'default'){
-                metatag.setAttribute("content", "black-translucent");
-            } else {
-                metatag.setAttribute("content", "default");
             }
 
             icon = document.getElementById("icon")
