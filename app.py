@@ -54,6 +54,10 @@ def mlmid():
 def mlfin():
     return render_template('stockfinal.html')
 
+@app.route('/rpi')
+def raspberrypi():
+    return render_template('raspberrypi.html')
+
 @app.errorhandler(404)
 def page_not_found(e):
     return render_template('404.html'), 404
