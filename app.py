@@ -4,7 +4,8 @@ app = Flask(__name__)
 
 @app.route('/')
 def index():
-    return render_template('index.html')
+    return redirect("https://drive.google.com/file/d/1YogXeBBbN4ekN8XXDONJ6iwOhCXTGYN_/view?usp=sharing")
+    # return render_template('index.html')
 
 @app.route('/aboutme')
 def about():
