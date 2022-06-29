@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="chrome=1">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- <meta name="description" content="ADD SEO DESCRIPTION FOR GOOOGLE HERE. CURRENTLY LOOKS SHITTY."> -->
+
+    <link rel="stylesheet" href="static\css\index.css">
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent"/>
+    <link rel="apple-touch-icon" id="icon" href="https://raw.githubusercontent.com/abadari3/personalwebsite/master/images/iconlight.png"/>
+
+    {% block css %}{% endblock %}
+    {% block head %}{% endblock %}
+    
+</head>
+<body>
+    <div class="wrapper">
+        <header>
+            {% block header %}{% endblock %} 
+        </header>
+
+        <div class='altheader'>
+            {% block altheader %}{% endblock %} 
+        </div>
+        
+        <section>
+            <img id="darktoggle" src="https://github.com/abadari3/personalwebsite/raw/master/images/lightmodeimg.png" onclick="myFunction()" style="cursor:pointer;" title="Toggle Dark Mode">
+            <br><br>
+            <div class='sub' style="background-color: transparent;">&nbsp;</div>
+            {% block body %}{% endblock %} 
+        </section>
+
+        <div class='altheader'>
+            {% block altfooter %}{% endblock %} 
+        </div>
+    </div>
+    <script src="javascripts/scale.fix.js"></script>
+    <script>
+        function myFunction() {
+           var element = document.body;
+           element.classList.toggle("dark-mode");
+           els = document.getElementsByTagName("h3")
+            for(var i = 0; i < els.length; i++){
+                els[i].classList.toggle("dark")
+            }
+
+            tex = document.getElementById("tex")
+            if(tex != null){
+                if(tex.src == "https://raw.githubusercontent.com/abadari3/personalwebsite/master/images/tex%20copy.png"){
+                    tex.src = "https://raw.githubusercontent.com/abadari3/personalwebsite/master/images/tex.png"
+                } else {
+                    tex.src = "https://raw.githubusercontent.com/abadari3/personalwebsite/master/images/tex%20copy.png"
+                }
+            }
+
+            errimg = document.getElementById("404img")
+            if(errimg != null) {
+                if(errimg.src == "https://github.com/abadari3/personalwebsite/raw/master/images/404-light.jpg"){
+                    errimg.src = "https://github.com/abadari3/personalwebsite/raw/master/images/404-dark.jpg"
+                } else {
+                    errimg.src = "https://github.com/abadari3/personalwebsite/raw/master/images/404-light.jpg"
+                }
+            }
+
+            darktoggle = document.getElementById("darktoggle")
+            if(darktoggle != null) {
+                if(darktoggle.src == "https://github.com/abadari3/personalwebsite/raw/master/images/lightmodeimg.png"){
+                    darktoggle.src = "https://github.com/abadari3/personalwebsite/raw/master/images/darkmodeimg.png"
+                } else {
+                    darktoggle.src = "https://github.com/abadari3/personalwebsite/raw/master/images/lightmodeimg.png"
+                }
+            }
+
+            darktogglesmall = document.getElementById("darktogglesmall")
+            if(darktogglesmall != null) {
+                if(darktogglesmall.src == "https://github.com/abadari3/personalwebsite/raw/master/images/lightmodeimg.png"){
+                    darktogglesmall.src = "https://github.com/abadari3/personalwebsite/raw/master/images/darkmodeimg.png"
+                } else {
+                    darktogglesmall.src = "https://github.com/abadari3/personalwebsite/raw/master/images/lightmodeimg.png"
+                }
+            }
+
+            icon = document.getElementById("icon")
+            if(icon.href == "https://raw.githubusercontent.com/abadari3/personalwebsite/master/images/iconlight.png"){
+                document.cookie = "theme=dark" + "; max-age=31536000; path=/;";
+                icon.href = "https://raw.githubusercontent.com/abadari3/personalwebsite/master/images/icondark.png"
+            } else {
+                icon.href = "https://raw.githubusercontent.com/abadari3/personalwebsite/master/images/iconlight.png"
+                document.cookie = "theme=light" + "; max-age=31536000; path=/;";
+            }
+
+        }
+        (function() {
+            if(document.cookie.match(/theme=dark/i)!= null){
+                myFunction()
+            }
+        })();
+    </script>
+    {% block scripts %}{% endblock %}
+</body>
+</html>

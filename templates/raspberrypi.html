@@ -1,0 +1,260 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="chrome=1">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- <meta name="description" content="ADD SEO DESCRIPTION FOR GOOOGLE HERE. CURRENTLY LOOKS SHITTY."> -->
+
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-status-bar-style" content="black"/>
+    <link rel="apple-touch-icon" id="icon" href="https://www.raspberrypi.org/wp-content/uploads/2011/10/Raspi-PGB001-300x267.png"/>
+
+    <style>
+        * {
+      box-sizing: border-box;
+    }
+    body {
+      margin: 0;
+    }
+    .row{
+      display:flex;
+      justify-content:flex-start;
+      align-items:stretch;
+      flex-wrap:nowrap;
+      padding:10px;
+    }
+    .cell{
+      min-height:75px;
+      flex-grow:1;
+      flex-basis:100%;
+    }
+    .navbar-items-c{
+      display:inline-block;
+      float:right;
+    }
+    .navbar{
+      background-color:#222;
+      color:#ddd;
+      min-height:50px;
+      width:100%;
+    }
+    .navbar-container{
+      max-width:950px;
+      margin:0 auto;
+      width:95%;
+    }
+    .navbar-container::after{
+      content:"";
+      clear:both;
+      display:block;
+    }
+    .navbar-brand{
+      vertical-align:top;
+      display:inline-block;
+      padding:5px;
+      min-height:50px;
+      min-width:50px;
+      color:inherit;
+      text-decoration:none;
+    }
+    .navbar-menu{
+      padding:10px 0;
+      display:block;
+      float:right;
+      margin:0;
+    }
+    .navbar-menu-link{
+      margin:0;
+      color:inherit;
+      text-decoration:none;
+      display:inline-block;
+      padding:10px 15px;
+    }
+    .navbar-burger{
+      margin:10px 0;
+      width:45px;
+      padding:5px 10px;
+      display:none;
+      float:right;
+      cursor:pointer;
+    }
+    .navbar-burger-line{
+      padding:1px;
+      background-color:white;
+      margin:5px 0;
+    }
+    #ibt2j{
+      background-image:url('https://www.raspberrypi.org/wp-content/uploads/2011/10/Raspi-PGB001-300x267.png');
+      background-repeat:repeat;
+      background-position:left top;
+      background-attachment:scroll;
+      background-size:cover;
+      opacity:1;
+    }
+    @keyframes fadeEffect{
+      from{
+        opacity:0;
+      }
+      to{
+        opacity:1;
+      }
+    }
+    @media (max-width: 768px){
+      .row{
+        flex-wrap:wrap;
+      }
+      .navbar-burger{
+        display:block;
+      }
+      .navbar-items-c{
+        display:none;
+        width:100%;
+      }
+      .navbar-menu{
+        width:100%;
+      }
+      .navbar-menu-link{
+        display:block;
+      }
+    }
+    iframe {
+        width: 100%;
+        height: 750px;
+    }
+    </style>
+    
+</head>
+<body>
+    <div class="wrapper">
+        <section>
+            <div data-gjs="navbar" class="navbar">
+                <div class="navbar-container" id="i5ezg">
+                  <a href="/rpi" title="Raspberry Pi" class="navbar-brand" id="ibt2j"></a>
+                  <div id="i9wlz" class="navbar-burger">
+                    <div class="navbar-burger-line">
+                    </div>
+                    <div class="navbar-burger-line">
+                    </div>
+                    <div class="navbar-burger-line">
+                    </div>
+                  </div>
+                  <div data-gjs="navbar-items" class="navbar-items-c">
+                    <nav data-gjs="navbar-menu" class="navbar-menu">
+                      <a href="http://raspberrypi.badari-ananda.gmail.com.beta.tailscale.net:7000" class="navbar-menu-link" target="myFrame">Files</a>
+                        <a href="http://raspberrypi.badari-ananda.gmail.com.beta.tailscale.net:8081" class="navbar-menu-link" target="myFrame">Motion</a>
+                      <a href="http://raspberrypi.badari-ananda.gmail.com.beta.tailscale.net:8096" class="navbar-menu-link" target="myFrame">Jellyfin</a>
+                      <a href="http://raspberrypi.badari-ananda.gmail.com.beta.tailscale.net:32400/web/" class="navbar-menu-link" target="myFrame">Plex</a>
+                      <a href="http://raspberrypi.badari-ananda.gmail.com.beta.tailscale.net:19999" class="navbar-menu-link" target="myFrame">Status</a>
+                      <!-- <a href="http://100.67.31.92:9090" class="navbar-menu-link" target="myFrame">WiiScale</a> -->
+                    </nav>
+                    </nav>
+                  </div>
+                </div>
+              </div>
+              <div class="row">
+                <div class="cell">
+                  <div id="izem2">
+                    <iframe frameborder="0" src="http://raspberrypi.badari-ananda.gmail.com.beta.tailscale.net:63946" name="myFrame"></iframe>
+                    <!-- <p><a href="http://100.67.31.92:8096" target="myFrame">Motion</a></p> -->
+                    <!-- <p><a href="http://100.67.31.92:8081" target="myFrame">Motion</a></p> -->
+                    <!-- <p><a href="http://100.67.31.92:19999" target="myFrame">Motion</a></p> -->
+                
+                  </div>
+                </div>
+              </div>
+              <script>var items = document.querySelectorAll('#i9wlz');
+                for (var i = 0, len = items.length; i < len; i++) {
+                  (function(){
+                    var e,t=0,n=function(){
+                      var e,t=document.createElement("void"),n={
+                        transition:"transitionend",OTransition:"oTransitionEnd",MozTransition:"transitionend",WebkitTransition:"webkitTransitionEnd"};
+                      for(e in n)if(void 0!==t.style[e])return n[e]}
+                    (),r=function(e){
+                      var t=window.getComputedStyle(e),n=t.display,r=(t.position,t.visibility,t.height,parseInt(t["max-height"]));
+                      if("none"!==n&&"0"!==r)return e.offsetHeight;
+                      e.style.height="auto",e.style.display="block",e.style.position="absolute",e.style.visibility="hidden";
+                      var i=e.offsetHeight;
+                      return e.style.height="",e.style.display="",e.style.position="",e.style.visibility="",i}
+                    ,i=function(e){
+                      t=1;
+                      var n=r(e),i=e.style;
+                      i.display="block",i.transition="max-height 0.25s ease-in-out",i.overflowY="hidden",""==i["max-height"]&&(i["max-height"]=0),0==parseInt(i["max-height"])?(i["max-height"]="0",setTimeout(function(){
+                        i["max-height"]=n+"px"}
+              ,10)):i["max-height"]="0"}
+                    ,a=function(r){
+                      if(r.preventDefault(),!t){
+                        var a=this.closest("[data-gjs=navbar]"),o=a.querySelector("[data-gjs=navbar-items]");
+                        i(o),e||(o.addEventListener(n,function(){
+                          t=0;
+                          var e=o.style;
+                          0==parseInt(e["max-height"])&&(e.display="",e["max-height"]="")}
+                                                   ),e=1)}
+                    };
+                    "gjs-collapse"in this||this.addEventListener("click",a),this["gjs-collapse"]=1
+                  }
+                   .bind(items[i]))();
+                }
+              </script>
+        </section>
+
+    </div>
+    <script src="javascripts/scale.fix.js"></script>
+    <script>
+        function myFunction() {
+           var element = document.body;
+           element.classList.toggle("dark-mode");
+           els = document.getElementsByTagName("h3")
+            for(var i = 0; i < els.length; i++){
+                els[i].classList.toggle("dark")
+            }
+
+            tex = document.getElementById("tex")
+            if(tex != null){
+                if(tex.src == "https://raw.githubusercontent.com/abadari3/personalwebsite/master/images/tex%20copy.png"){
+                    tex.src = "https://raw.githubusercontent.com/abadari3/personalwebsite/master/images/tex.png"
+                } else {
+                    tex.src = "https://raw.githubusercontent.com/abadari3/personalwebsite/master/images/tex%20copy.png"
+                }
+            }
+
+            errimg = document.getElementById("404img")
+            if(errimg != null) {
+                if(errimg.src == "https://github.com/abadari3/personalwebsite/raw/master/images/404-light.jpg"){
+                    errimg.src = "https://github.com/abadari3/personalwebsite/raw/master/images/404-dark.jpg"
+                } else {
+                    errimg.src = "https://github.com/abadari3/personalwebsite/raw/master/images/404-light.jpg"
+                }
+            }
+
+            darktoggle = document.getElementById("darktoggle")
+            if(darktoggle != null) {
+                if(darktoggle.src == "https://github.com/abadari3/personalwebsite/raw/master/images/lightmodeimg.png"){
+                    darktoggle.src = "https://github.com/abadari3/personalwebsite/raw/master/images/darkmodeimg.png"
+                } else {
+                    darktoggle.src = "https://github.com/abadari3/personalwebsite/raw/master/images/lightmodeimg.png"
+                }
+            }
+
+            darktogglesmall = document.getElementById("darktogglesmall")
+            if(darktogglesmall != null) {
+                if(darktogglesmall.src == "https://github.com/abadari3/personalwebsite/raw/master/images/lightmodeimg.png"){
+                    darktogglesmall.src = "https://github.com/abadari3/personalwebsite/raw/master/images/darkmodeimg.png"
+                } else {
+                    darktogglesmall.src = "https://github.com/abadari3/personalwebsite/raw/master/images/lightmodeimg.png"
+                }
+            }
+
+            icon = document.getElementById("icon")
+            if(icon.href == "https://raw.githubusercontent.com/abadari3/personalwebsite/master/images/iconlight.png"){
+                document.cookie = "theme=dark" + "; max-age=31536000; path=/;";
+                icon.href = "https://raw.githubusercontent.com/abadari3/personalwebsite/master/images/icondark.png"
+            } else {
+                icon.href = "https://raw.githubusercontent.com/abadari3/personalwebsite/master/images/iconlight.png"
+                document.cookie = "theme=light" + "; max-age=31536000; path=/;";
+            }
+
+        }
+    </script>
+</body>
+</html>

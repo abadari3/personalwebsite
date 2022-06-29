@@ -1,0 +1,913 @@
+<!doctype html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="chrome=1">
+    <meta name="viewport" content="width=device-width">
+
+    <style>
+      /*!
+ * GitHub Light v0.4.1
+ * Copyright (c) 2012 - 2017 GitHub, Inc.
+ * Licensed under MIT (https://github.com/primer/github-syntax-theme-generator/blob/master/LICENSE)
+ */
+
+.pl-c /* comment, punctuation.definition.comment, string.comment */ {
+  color: #6a737d;
+}
+
+.pl-c1 /* constant, entity.name.constant, variable.other.constant, variable.language, support, meta.property-name, support.constant, support.variable, meta.module-reference, markup.raw, meta.diff.header, meta.output */,
+.pl-s .pl-v /* string variable */ {
+  color: #005cc5;
+}
+
+.pl-e /* entity */,
+.pl-en /* entity.name */ {
+  color: #6f42c1;
+}
+
+.pl-smi /* variable.parameter.function, storage.modifier.package, storage.modifier.import, storage.type.java, variable.other */,
+.pl-s .pl-s1 /* string source */ {
+  color: #24292e;
+}
+
+.pl-ent /* entity.name.tag, markup.quote */ {
+  color: #22863a;
+}
+
+.pl-k /* keyword, storage, storage.type */ {
+  color: #d73a49;
+}
+
+.pl-s /* string */,
+.pl-pds /* punctuation.definition.string, source.regexp, string.regexp.character-class */,
+.pl-s .pl-pse .pl-s1 /* string punctuation.section.embedded source */,
+.pl-sr /* string.regexp */,
+.pl-sr .pl-cce /* string.regexp constant.character.escape */,
+.pl-sr .pl-sre /* string.regexp source.ruby.embedded */,
+.pl-sr .pl-sra /* string.regexp string.regexp.arbitrary-repitition */ {
+  color: #032f62;
+}
+
+.pl-v /* variable */,
+.pl-smw /* sublimelinter.mark.warning */ {
+  color: #e36209;
+}
+
+.pl-bu /* invalid.broken, invalid.deprecated, invalid.unimplemented, message.error, brackethighlighter.unmatched, sublimelinter.mark.error */ {
+  color: #b31d28;
+}
+
+.pl-ii /* invalid.illegal */ {
+  color: #fafbfc;
+  background-color: #b31d28;
+}
+
+.pl-c2 /* carriage-return */ {
+  color: #fafbfc;
+  background-color: #d73a49;
+}
+
+.pl-c2::before /* carriage-return */ {
+  content: "^M";
+}
+
+.pl-sr .pl-cce /* string.regexp constant.character.escape */ {
+  font-weight: bold;
+  color: #22863a;
+}
+
+.pl-ml /* markup.list */ {
+  color: #735c0f;
+}
+
+.pl-mh /* markup.heading */,
+.pl-mh .pl-en /* markup.heading entity.name */,
+.pl-ms /* meta.separator */ {
+  font-weight: bold;
+  color: #005cc5;
+}
+
+.pl-mi /* markup.italic */ {
+  font-style: italic;
+  color: #24292e;
+}
+
+.pl-mb /* markup.bold */ {
+  font-weight: bold;
+  color: #24292e;
+}
+
+.pl-md /* markup.deleted, meta.diff.header.from-file, punctuation.definition.deleted */ {
+  color: #b31d28;
+  background-color: #ffeef0;
+}
+
+.pl-mi1 /* markup.inserted, meta.diff.header.to-file, punctuation.definition.inserted */ {
+  color: #22863a;
+  background-color: #f0fff4;
+}
+
+.pl-mc /* markup.changed, punctuation.definition.changed */ {
+  color: #e36209;
+  background-color: #ffebda;
+}
+
+.pl-mi2 /* markup.ignored, markup.untracked */ {
+  color: #f6f8fa;
+  background-color: #005cc5;
+}
+
+.pl-mdr /* meta.diff.range */ {
+  font-weight: bold;
+  color: #6f42c1;
+}
+
+.pl-ba /* brackethighlighter.tag, brackethighlighter.curly, brackethighlighter.round, brackethighlighter.square, brackethighlighter.angle, brackethighlighter.quote */ {
+  color: #586069;
+}
+
+.pl-sg /* sublimelinter.gutter-mark */ {
+  color: #959da5;
+}
+
+.pl-corl /* constant.other.reference.link, string.other.link */ {
+  text-decoration: underline;
+  color: #032f62;
+}
+
+/* Style the button that is used to open and close the collapsible content */
+.collapsible {
+  background-color: transparent;
+  color: white;
+  cursor: pointer;
+  width: auto;
+  border: none;
+  text-align: left;
+  outline: none;
+  font-size: 15px;
+  text-decoration: none;
+}
+
+/* Add a background color to the button if it is clicked on (add the .active class with JS), and when you move the mouse over it (hover) */
+.collapsible-active, .collapsible:hover {
+  text-decoration: none;
+}
+
+/* Style the collapsible content. Note: hidden by default */
+.collapsible-content {
+  max-height: 100%;
+  padding: 0px;
+  overflow: hidden;
+  transition: max-height 0.2s ease-out;
+}
+
+/* Style the collapsible content. Note: shown by default */
+.collapsible-content-shown-by-default {
+  max-height: 100%;
+  padding: 0px;
+  overflow: hidden;
+  transition: max-height 0.2s ease-out;
+}
+
+.disabled{
+  pointer-events:none;
+  /* font-style:italic; */
+  color:darkgray
+}
+
+.home{
+  color:black
+}
+
+body {
+  background-color: #fff;
+  padding:50px;
+  font: 14px/1.5 "Noto Sans", "Helvetica Neue", Helvetica, Arial, sans-serif;
+  /* color:#727272; */
+  /* color:darkslategray; */
+  color:black;
+  font-weight:400;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  /* color:#222; */
+  color:black;
+  margin:0 0 20px;
+}
+
+p, ul, ol, table, pre, dl {
+  margin:0 0 20px;
+}
+
+h1, h2, h3 {
+  line-height:1.1;
+}
+
+h1 {
+  font-size:28px;
+}
+
+h2 {
+  /* color:#393939; */
+  color:black;
+}
+
+h3, h4, h5, h6 {
+  /* color:#494949; */
+  color:black;
+}
+
+a {
+  /* color:#39c; */
+  color:dodgerblue;
+  text-decoration:none;
+}
+
+#ref{
+  color:black;
+  text-decoration:none;
+}
+
+#ref:hover {
+  color:darkblue;
+  text-decoration:none;
+}
+
+a:hover {
+  /* color:#069; */
+  color:darkblue;
+}
+
+a small {
+  font-size:11px;
+  color:#777;
+  margin-top:-0.3em;
+  display:block;
+}
+
+a:hover small {
+  color:#777;
+}
+
+.wrapper {
+  width:1000px;
+  margin:0 auto;
+}
+
+blockquote {
+  border-left:1px solid #e5e5e5;
+  margin:0;
+  padding:0 0 0 20px;
+  font-style:italic;
+}
+
+code, pre {
+  font-family:Monaco, Bitstream Vera Sans Mono, Lucida Console, Terminal, Consolas, Liberation Mono, DejaVu Sans Mono, Courier New, monospace;
+  color:#333;
+  font-size:12px;
+}
+
+pre {
+  padding:8px 15px;
+  background: #f8f8f8;
+  border-radius:5px;
+  border:1px solid #e5e5e5;
+  overflow-x: auto;
+}
+
+table {
+  width:100%;
+  border-collapse:collapse;
+}
+
+th, td {
+  text-align:left;
+  padding:5px 10px;
+  border-bottom:1px solid #e5e5e5;
+}
+
+dt {
+  color:#444;
+  /* color:black; */
+  font-weight:700;
+}
+
+th {
+  color:#444;
+}
+
+img {
+  max-width:100%;
+  /* width: 100%; */
+}
+
+header {
+  width:270px;
+  float:left;
+  position:fixed;
+  -webkit-font-smoothing:subpixel-antialiased;
+}
+
+header ul {
+  list-style:none;
+  height:40px;
+  padding:0;
+  background: #f4f4f4;
+  border-radius:5px;
+  border:1px solid #e0e0e0;
+  width:270px;
+}
+
+header li {
+  width:89px;
+  float:left;
+  border-right:1px solid #e0e0e0;
+  height:40px;
+}
+
+header li:first-child a {
+  border-radius:5px 0 0 5px;
+}
+
+header li:last-child a {
+  border-radius:0 5px 5px 0;
+}
+
+header ul a {
+  line-height:1;
+  font-size:11px;
+  color:#999;
+  display:block;
+  text-align:center;
+  padding-top:6px;
+  height:34px;
+}
+
+header ul a:hover {
+  color:#999;
+}
+
+header ul a:active {
+  background-color:#f0f0f0;
+}
+
+strong {
+  /* color:#222; */
+  color:black;
+  font-weight:700;
+}
+
+header ul li + li + li {
+  border-right:none;
+  width:89px;
+}
+
+header ul a strong {
+  font-size:14px;
+  display:block;
+  /* color:#222; */
+  color:black;
+}
+
+section {
+  width:600px;
+  float:right;
+  padding-bottom:50px;
+}
+
+small {
+  font-size:11px;
+}
+
+hr {
+  border:0;
+  background:#e5e5e5;
+  height:1px;
+  margin:0 0 20px;
+}
+
+footer {
+  width:270px;
+  float:left;
+  position:fixed;
+  bottom:50px;
+  -webkit-font-smoothing:subpixel-antialiased;
+}
+
+figure {
+  margin: auto;
+}
+
+figcaption {
+  background-color: white;
+  color: black;
+  font-style: italic;
+  text-align: center;
+}
+
+div:target {
+  border: 2px solid gray;
+}
+
+@media print, screen and (max-width: 960px) {
+
+  div.wrapper {
+    width:auto;
+    margin:0;
+  }
+
+  header, section, footer {
+    float:none;
+    position:static;
+    width:auto;
+  }
+
+  header {
+    padding-right:320px;
+  }
+
+  section {
+    border:1px solid #e5e5e5;
+    border-width:1px 0;
+    padding:20px 0;
+    margin:0 0 20px;
+  }
+
+  header a small {
+    display:inline;
+  }
+
+  header ul {
+    position:absolute;
+    right:50px;
+    top:52px;
+  }
+}
+
+@media print, screen and (max-width: 720px) {
+  body {
+    word-wrap:break-word;
+  }
+
+  header {
+    padding:0;
+  }
+
+  header ul, header p.view {
+    position:static;
+  }
+
+  pre, code {
+    word-wrap:normal;
+  }
+}
+
+@media print, screen and (max-width: 480px) {
+  body {
+    padding:15px;
+  }
+
+  header ul {
+    width:99%;
+  }
+
+  header li, header ul li + li + li {
+    width:33%;
+  }
+}
+
+@media print {
+  body {
+    padding:0.4in;
+    font-size:12pt;
+    /* color:#444; */
+    color:black;
+  }
+}
+
+    </style>
+    
+    <title>Predicting Future Stock Market Prices using a Multilayer Perceptron Model</title>
+    <!--[if lt IE 9]>
+    <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+  </head>
+  <body>
+    <div class="wrapper">
+      <header>
+        <h1><a class="home" href="stock">Predicting Future Stock Market Prices using a Multilayer Perceptron Model</a></h1>
+        <hr>
+        <h3>CS 4641: Machine Learning</h3>
+        <p>Ananda Badari<br>
+          Reed Bethune<br>
+          Leon Breaux<br>
+          Winter Galyon<br>
+          Soo Kim</p>
+        <hr>
+        <div align='center'>
+          <a href="stockprop">Project Proposal</a><br>
+          <a href="stockmidterm">Midterm Update</a><br>
+          <a href="stockfinal">Final Update</a>
+        </div>
+        <br>
+        <hr>
+        <img src="https://raw.githubusercontent.com/abadari3/personalwebsite/master/images/AI-Stock.png">
+        
+
+        <p class="view"><a href="https://github.gatech.edu/abadari3/Predicting-Future-Stock-Market-Prices-using-a-Multilayer-Perceptron-Model">View the Project on GitHub <small>Predicting Future Stock Market Prices using a Multilayer Perceptron Model</small></a></p>
+
+      </header>
+      
+      <section>
+        <h1 align='center'>Midterm Update</h1>
+        <div align="right" style="color:gray">
+          <small><i>Click on any header to collapse the section</i></small>
+        </div>
+        <button class="collapsible" id="collapsible-button-0" onclick="toggleCollapsibleSectionWithAnimation.call(this)"><h3>Introduction/Background</h3></button>
+        <div class="collapsible-content" id="collapsible-section-0">
+          <p>
+              We will be modifying Patel’s fusion model with a Multilayer Perceptron Model (see <a href="stockprop">project proposal</a>), rather than a single-layer Artificial Neural Network. We analyze stock behavior from multiple perspectives, using many different technical indicators, and finally evaluate the accuracy of our model.
+
+              Specifically in this Midterm Update, we collected and preprocessed our data, and set up our SVM in order to estimate technical indicator values. We use an SVR-RBF model in order to fit and predict future indicator values. We also show the preliminary results of trying to predict stock prices using an SVR.
+          </p>
+          <hr>
+        </div>
+        
+
+        <button class="collapsible" id="collapsible-button-1" onclick="toggleCollapsibleSectionWithAnimation.call(this)"><h3>Problem Definition</h3></button>
+        <div class="collapsible-content" id="collapsible-section-1">
+          <p>
+            Given previous a stock's market data, we wish to predict that stock’s prices over the next business week. 
+            
+            <br><br>We will be using previous stock market data and finding the appropriate technical indicators for the previous 30-60 days, and run them through a Support Vector Regression (SVR) model to predict the technical indicators over the next 5 days. These predicted technical indicator values are then inputted to a Multilayer Perceptron network, which predicts the closing stock price on the next five days. 
+          </p>
+          <hr>
+        </div>
+
+        
+        <button class="collapsible" id="collapsible-button-5" onclick="toggleCollapsibleSectionWithAnimation.call(this)"><h3>Data Collection</h3></button>
+        <div class="collapsible-content" id="collapsible-section-5">
+          <p>
+             A large part of our reasoning in choosing a stock technical analysis project was the availability of clean, complete price data. Rather than compiling and cleaning datasets ourselves, we have easy access to years of data through public finance APIs.
+
+            <br>
+            <div align="center">
+            <button class="collapsible" id="collapsible-button-51" onclick="toggleCollapsibleSectionWithAnimation.call(this)"><u style="color:black"><strong>Technical Indicators</strong></u></button>
+            </div>
+            <br>
+            <div class="collapsible-content" id="collapsible-section-51">
+              Using the yfinance library, we were easily able to download price history from a ticker at runtime courtesy of Yahoo Finance. Because we are calculating technical indicators, this price data is all we need in terms of collected data - the technical indicators we can calculate ourselves. At this stage of the project, we have elected to make use of 10 technical indicators:
+              
+              <br><br>
+
+              <ol>
+                <li>Simple Moving Average</li>
+                <li>Exponential Moving Average</li>
+                <li>Momentum</li>
+                <li>Stochastic K%</li>
+                <li>Stochastic D%</li>
+                <li>MACD</li>
+                <li>RSI</li>
+                <li>Larry Williams' R%</li>
+                <li>Accumulation/Distribution Oscillators</li>
+                <li>Commodity Channel Index</li>
+              </ol>
+
+              To handle this data for each stock symbol, we wrote a Stock class (<a target="_blank" href="src/old_stock.py">stock.py</a>) that takes a ticker (i.e. ‘AAPL’) and a date range for the price data, which is held in a dataframe. The price data is downloaded upon initialization of a Stock object, and each of the technical indicators can be calculated on demand with a method.
+              <figure>
+                <img src="https://raw.githubusercontent.com/abadari3/personalwebsite/master/images/appletechnicals.png" style="width:100%">
+                <figcaption>Technical Indicators for AAPL Stock</figcaption>
+              </figure>
+            </div>
+
+            <br>
+            <div align="center">
+            <button class="collapsible" id="collapsible-button-52" onclick="toggleCollapsibleSectionWithAnimation.call(this)"><u style="color:black"><strong>SVR and MLP</strong></u></button>
+            </div>
+            <br>
+            <div class="collapsible-content" id="collapsible-section-52">
+              Once we have the time series data of the closing prices as well as the technical indicators for the day, we can run each of them through an SVR. All the data is organized into an N by 11 array, where we have N day's market data, each day which has 11 features (its close price, and its 10 indicator values). In order to predict the next week's indicator values, we put each column into an SVR-RBF model, which would then be fit over an extended range to see predicted values. We find that using SVR to predict is ok for the next immediate day, but the model loses accuracy fast due to the size of the training data. We found through experimentation, that the RMSE errors are lowest when the SVR is performed on 30-60 days of data, while predicting no more than 5 days into the future. Below are two examples of possible outputs for the SVR-RBF prediction run on close prices.
+
+              <figure>
+                <img src="https://raw.githubusercontent.com/abadari3/personalwebsite/master/images/inaccurate prediction.png" style="width:100%">
+                <figcaption>An Inaccurate SVR Prediction of Future Stock Data</figcaption>
+              </figure>
+
+              <figure>
+                <img src="https://raw.githubusercontent.com/abadari3/personalwebsite/master/images/good prediction.png" style="width:100%">
+                <figcaption>An Accurate SVR Prediction of Future Stock Data</figcaption>
+            </figure>
+
+            </div>
+          </p>
+          <hr>
+        </div>
+
+        <button class="collapsible" id="collapsible-button-2" onclick="toggleCollapsibleSectionWithAnimation.call(this)"><h3>Methods</h3></button>
+        <div class="collapsible-content" id="collapsible-section-2">
+          
+          <p>
+            Our method of predicting a stock’s price uses 10 technical indicators calculated from data pulled from yahoo finance: simple moving average, exponential moving average, momentum, stochastic K, stochastic D, MACD, RSI, Larry WIlliams’ R%, accumulation and distribution oscillators, and commodity channel index. These indicators are used as input for our SVR which is modelled by a RBF network. For our implementation of SVR, we are using the python library sklearn.svm.SVR. Our regression model is fitted to our price data and currently set up to predict near future stock price fluctuations.
+
+
+            <br>
+            <div align="center">
+            <button class="collapsible" id="collapsible-button-21" onclick="toggleCollapsibleSectionWithAnimation.call(this)"><u style="color:black"><strong>Technical Indicators</strong></u></button>
+            </div>
+            <br>
+            <div class="collapsible-content" id="collapsible-section-21">
+              Part of the aim of our project is to test the predictive value of technical indicators in a hybrid support vector regression and multilayer perceptron model. We thought it most pertinent to select 10 of the most popular technical indicators. These indicators are popular in practice, and for pedagogical reasons. We will briefly explain what each indicator signifies here: <br><br>
+
+              <ol>
+                <li>Simple Moving Average</li>
+                  <dl>
+                    <dd>A simple average of a range of prices over n periods. This indicator is commonly used to watch a stock’s price movement without the choppiness of small price movements.This indicator is used in the pattern known as the “death cross” when a stock’s 50-day moving average drops below its 200-day moving average.
+                    </dd>
+                    <dd>
+                      <div align="center">
+                        <img src="https://raw.githubusercontent.com/abadari3/personalwebsite/master/images/sma.png">
+                      </div>
+                    </dd>
+                  </dl>
+                <li>Exponential Moving Average</li>
+                  <dl>
+                    <dd>This measure is similar to the simple moving average, but gives more weighting to more recent price data.
+                    </dd>
+                    <dd>
+                      <div align="center">
+                        <img src="https://raw.githubusercontent.com/abadari3/personalwebsite/master/images/ema.png">
+                      </div>
+                    </dd>
+                  </dl>
+                <li>Momentum</li>
+                  <dl>
+                    <dd>This indicator takes its name from the phenomenon in physics. It signifies the velocity of price changes in a stock. Typical thinking indicates that high momentum on a stock whose price is trending upwards is a sign that the price will continue to trend up.
+                    </dd>
+                    <dd>
+                      <div align="center">
+                        <img src="https://raw.githubusercontent.com/abadari3/personalwebsite/master/images/mom.png">
+                      </div>
+                    </dd>
+                  </dl>
+                <li>Stochastic K%</li>
+                  <dl>
+                    <dd>Known also as the “slow stochastic” indicator, this measure compares price history to the closing prices of a stock. The general theory holds that in an upward trending market, a stock's price should close near the high.
+                    </dd>
+                    <dd>
+                      <div align="center">
+                        <img src="https://raw.githubusercontent.com/abadari3/personalwebsite/master/images/stck.png">
+                      </div>
+                    </dd>
+                  </dl>
+                <li>Stochastic D%</li>
+                  <dl>
+                    <dd> Known also as the “fast stochastic” indicator, this measure is the 3-day simple moving average of stochastic %K.
+                    </dd>
+                    <dd>
+                      <div align="center">
+                        <img src="https://raw.githubusercontent.com/abadari3/personalwebsite/master/images/stcd.png">
+                      </div>
+                    </dd>
+                  </dl>
+                <li>MACD</li>
+                  <dl>
+                    <dd> Moving average convergence and divergence is an indicator which tracks the moving average of a stock’s price. The MACD line is given by subtracting a stock’s 26-day exponential moving average from its 12-day exponential moving average. In conjunction, one looks at the 9 day exponential moving average - called the signal line. When the signal line and MACD line cross, this could be a buy or sell signal.
+
+                    </dd>
+                    <dd>
+                      <div align="center">
+                        <img src="https://raw.githubusercontent.com/abadari3/personalwebsite/master/images/macd.png">
+                      </div>
+                    </dd>
+                  </dl>
+                <li>RSI</li>
+                  <dl>
+                    <dd> The relative strength index measures the magnitude of recent price movements to determine whether or not a stock is overbought or oversold. It is calculated in two steps.
+                    </dd>
+                    <dd>
+                      <div align="center">
+                        <img src="https://raw.githubusercontent.com/abadari3/personalwebsite/master/images/rsi.png">
+                      </div>
+                    </dd>
+                  </dl>
+                <li>Larry Williams' R%</li>
+                  <dl>
+                    <dd> Similarly to the stochastic oscillators, %R measures where a stock’s price is located relative to the absolute high and absolute low of the period.
+                    </dd>
+                    <dd>
+                      <div align="center">
+                        <img src="https://raw.githubusercontent.com/abadari3/personalwebsite/master/images/williams.png">
+                      </div>
+                    </dd>
+                  </dl>
+                <li>Accumulation/Distribution Oscillators</li>
+                  <dl>
+                    <dd> The accumulation and distribution line measures price and volume to assess whether a stock is being accumulated or distributed. Comparing this value to price can tell an investor whether or not the amount of accumulation or distribution (buying or selling) is in accordance with the current price.
+                    </dd>
+                    <dd>
+                      <div align="center">
+                        <img src="https://raw.githubusercontent.com/abadari3/personalwebsite/master/images/ado.png">
+                      </div>
+                    </dd>
+                  </dl>
+                <li>Commodity Channel Index</li>
+                  <dl>
+                    <dd> The commodity channel index measures the difference between the current price of a stock and it’s historical average price. A CCI above 0 indicates a stock is trading above its historical average, and likewise a CCI below 0 indicates a stock is trading below its historical average.
+                    </dd>
+                    <dd>
+                      <div align="center">
+                        <img src="https://raw.githubusercontent.com/abadari3/personalwebsite/master/images/cci.png">
+                      </div>
+                    </dd>
+                  </dl>
+              </ol>
+
+
+            </div>
+
+            <br>
+            <div align="center">
+            <button class="collapsible" id="collapsible-button-55" onclick="toggleCollapsibleSectionWithAnimation.call(this)"><u style="color:black"><strong>SVR and MLP</strong></u></button>
+            </div>
+            <br>
+            <div class="collapsible-content" id="collapsible-section-55">
+              Given a time-series daily data for a period of N days, I want to predict the future values, based on the data so far. When constructing my SVR, we had to decide what kind of model we would use to fit my data, and the choices we had were linear, polynomial, or RBF. In the case of a linear model, modeling and predicting prices on a linear model was impractical, as over longer time ranges, the price increases and then decreases, and changes directions many times. A linear model would not capture this complexity. A polynomial model was good, but then the issue then became choosing the degree of the polynomial, and that too could drastically change. Additionally, a polynomial model might fit well some of the time, but there is nothing inherently tying the movements of a stock to any polynomial function. <br><br>
+
+              <div align="center">
+                <figure><img src="https://raw.githubusercontent.com/abadari3/personalwebsite/master/images/rbf.png"></figure>
+              </div><br>
+
+              The reason RBF is a good model, however, is that RBF is a Radial Basis Function, that represents behavior along a gaussian distribution. Given the stock price at any day, the movements happen along a gaussian, with movements further from the mean being more unlikely, and movements close to the mean being more likely. <br><br>
+              
+              We are assuming throughout this paper that the stock price is reacting to normal market conditions, and not to any news about the company or external economic factors. Because this assumption is by default, incorrect, our model must also be incorrect. However, out of the three, RBF is the "least incorrect".
+              
+              <!-- linear, rbf, polynomial graph -->
+              <div align="center">
+                <figure><img src="https://raw.githubusercontent.com/abadari3/personalwebsite/master/images/model_comp.png" style="width:100%"></figure>
+              </div>
+              <div id="days" style="color:white"></div>
+              When predicting prices with an SVR, since the RBF function behaves along a Gaussian space, the strength of the prediction decreases the further into the future we go. From testing many values, of the number of days in the future to predict, around 14 days the predictions level out to a flat line. When running an RMSE test on many different days of prediction, using an SVR for 1-2 day predictions clearly had the highest change of success, and lowest mean RMSE. However, for visualization purposes, we are trying to estimate the next 5 days. Another reason to aim for 5 days instead of 1, is that the SVR many times would predict the next immediate day incorrectly, but still capture the correct general trend for the coming week.
+              
+              <!-- graph showing differences in number of days for SVR predict -->
+              
+              <div align="center">
+                <figure><img src="https://raw.githubusercontent.com/abadari3/personalwebsite/master/images/2day.png" style="width:100%">
+                <figcaption>2-day SVR Prediction</figcaption></figure>
+              </div>
+              <div align="center">
+                <figure><img src="https://raw.githubusercontent.com/abadari3/personalwebsite/master/images/5day.png" style="width:100%">
+                <figcaption>5-day SVR Prediction</figcaption></figure>
+              </div>
+              <div align="center">
+                <figure><img src="https://raw.githubusercontent.com/abadari3/personalwebsite/master/images/10day.png" style="width:100%">
+                <figcaption>10-day SVR Prediction</figcaption></figure>
+              </div>
+              <div align="center">
+                <figure><img src="https://raw.githubusercontent.com/abadari3/personalwebsite/master/images/15day.png" style="width:100%">
+                <figcaption>15-day SVR Prediction</figcaption></figure>
+              </div>
+              <div align="center">
+                <figure><img src="https://raw.githubusercontent.com/abadari3/personalwebsite/master/images/20day.png" style="width:100%">
+                <figcaption>20-day SVR Prediction</figcaption></figure>
+              </div>
+              <br><br>
+              
+              <!-- Stage 1 / 2 Diagram -->
+              <div align="center">
+                <figure><img src="https://raw.githubusercontent.com/abadari3/personalwebsite/master/images/2stage.png" style="width:100%"></figure>
+              </div><br>
+
+              Seeing how the SVR is behaving on the regular stock close price, we are going to use an SVR with an RBF model to fit and then predict technical indicator values instead of the closing stock price itself. Currently, from the MLP layout diagram above, we have completed Stage 1, with the Data Preparation for Prediction Models. 
+            </div>
+          </p>
+          <hr>
+        </div>
+
+        <button class="collapsible" id="collapsible-button-3" onclick="toggleCollapsibleSectionWithAnimation.call(this)"><h3>Results</h3></button>
+        <div class="collapsible-content" id="collapsible-section-3">
+          <p>
+            Our approach utilizes 10 technical indicators which we feed into a SVR (support vector regression) to output predicted values of each indicator on a particular day. Our current implementation is set to take our 10 technical indicators and provide an estimated near future price prediction using our SVR. 
+
+            <br>
+            <div align="center">
+            <button class="collapsible" id="collapsible-button-59" onclick="toggleCollapsibleSectionWithAnimation.call(this)"><u style="color:black"><strong>Technical Indicators</strong></u></button>
+            </div>
+            <br>
+            <div class="collapsible-content" id="collapsible-section-59">
+              Below are the example results of the preprocessing of the stock data into technical indicator values:
+              <figure><img src="https://raw.githubusercontent.com/abadari3/personalwebsite/master/images/resultsraw.png" style="width:100%"></figure>
+              <figure><img src="https://raw.githubusercontent.com/abadari3/personalwebsite/master/images/rma.png" style="width:100%"></figure>
+              <figure><img src="https://raw.githubusercontent.com/abadari3/personalwebsite/master/images/rmacd.png" style="width:100%"></figure>
+              <figure><img src="https://raw.githubusercontent.com/abadari3/personalwebsite/master/images/rmom.png" style="width:100%"></figure>
+              <figure><img src="https://raw.githubusercontent.com/abadari3/personalwebsite/master/images/rstc.png" style="width:100%"></figure>
+              <figure><img src="https://raw.githubusercontent.com/abadari3/personalwebsite/master/images/rrsi.png" style="width:100%"></figure>
+              <figure><img src="https://raw.githubusercontent.com/abadari3/personalwebsite/master/images/rwilliams.png" style="width:100%"></figure>
+              <figure><img src="https://raw.githubusercontent.com/abadari3/personalwebsite/master/images/rado.png" style="width:100%"></figure>
+              <figure><img src="https://raw.githubusercontent.com/abadari3/personalwebsite/master/images/rcci.png" style="width:100%"></figure>
+
+            </div>
+
+            <!-- 
+            <br><br>
+
+            Describe the evaluation metrics you used to evaluate how well your approach is working. Include clear figures and tables, as well as illustrative qualitative examples if appropriate. Be sure to include obvious baselines to see if your approach is doing better than a naive approach (e.g. for classification accuracy, how well would a classifier do that made random decisions?). 
+
+            <br><br>
+
+            Also discuss any parameters of your algorithms, and tell us how you set the values of those parameters. You can also show us how the performance varies as you change those parameter values. Be sure to discuss any trends you see in your results, and explain why these trends make sense. Are the results as expected? Why?  -->
+
+            <br>
+            <div align="center">
+            <button class="collapsible" id="collapsible-button-58" onclick="toggleCollapsibleSectionWithAnimation.call(this)"><u style="color:black"><strong>SVR and MLP</strong></u></button>
+            </div>
+            <br>
+            <div class="collapsible-content" id="collapsible-section-58">
+              The main parameter that comes to mind when it comes to predicting future values is "How many days into the future can I predict?". As we saw in the <a href="#days">methods</a> section, we are aiming to estimate about 5 days into the future. In order to test this, I used an SVR to predict every n days in 2020 so far, and then calculated the average RMSE for each n. As we see below, we want to be as close to 1 day in the future as possible, and anything above 5 is relatively equally useless.<br><br>
+
+              <figure><img src="https://raw.githubusercontent.com/abadari3/personalwebsite/master/images/rmse.png" style="width:100%"></figure>
+
+              Describe how we are evaluating the effectiveness of the SVR model, and the many parameters that go into it, like the range of dates, C value, gamma value, why RBF, etc. 
+              For the other parameters we deal with when doing SVR-RBF, we have gamma and C. Gamma is an analogue to the inverse of the standard deviation when talking about distributions. A lower gamma value means that when predicting future values, the predictions are more volatile, can go further away from the previous value. A higher gamma value means the movement is slower and tends to stay near its older values. (When it comes to stock prediction, raising our gamma value during times when volume is low is a possible improvement in the model). A higher gamma level also means we are able to predict with reliability further into the future.<br><br>
+              
+              The other parameter C behaves as the regularization parameter in the SVM. For higher values of C, a smaller margin of error is accepted when finding the decision function, and for lower c a higher margin of error is acceptable. Below is an example of the effects of these two parameters from SciKit-Learn.
+
+              <figure><img src="https://raw.githubusercontent.com/abadari3/personalwebsite/master/images/gammac.png" style="width:100%"><figcaption><a target="_blank" href="https://scikit-learn.org/stable/auto_examples/svm/plot_rbf_parameters.html">Effects of RBF SVM Parameters</a></figcaption></figure><br>
+
+              <br><br>
+              For the technical indicator front, many of the technical indicators have a number of days parameter that can be changed. As of now, we will follow the same numbers as used in the Patel study, but changing these parameters and studying their effects could be a future point of research. Let's see some results of prediction vs. actual for the technical indicators as well as the stock prices itself. 
+
+              <figure><img src="https://raw.githubusercontent.com/abadari3/personalwebsite/master/images/praw.png" style="width:100%"><figcaption>Raw Data</figcaption></figure><br><br>
+              <figure><img src="https://raw.githubusercontent.com/abadari3/personalwebsite/master/images/psma.png" style="width:100%"><figcaption>Simple Moving Average</figcaption></figure>
+              <figure><img src="https://raw.githubusercontent.com/abadari3/personalwebsite/master/images/pema.png" style="width:100%"><figcaption>Exponential Moving Average</figcaption></figure><br><br>
+              <figure><img src="https://raw.githubusercontent.com/abadari3/personalwebsite/master/images/pmacd.png" style="width:100%"><figcaption>MACD</figcaption></figure>
+              <figure><img src="https://raw.githubusercontent.com/abadari3/personalwebsite/master/images/pmacd2.png" style="width:100%"><figcaption>MACD Signal Line</figcaption></figure><br><br>
+              <figure><img src="https://raw.githubusercontent.com/abadari3/personalwebsite/master/images/pmom.png" style="width:100%"><figcaption>Momentum</figcaption></figure><br><br>
+              <figure><img src="https://raw.githubusercontent.com/abadari3/personalwebsite/master/images/pstck.png" style="width:100%"><figcaption>Stochastic K%</figcaption></figure>
+              <figure><img src="https://raw.githubusercontent.com/abadari3/personalwebsite/master/images/pstcd.png" style="width:100%"><figcaption>Stochastic D%</figcaption></figure><br><br>
+              <figure><img src="https://raw.githubusercontent.com/abadari3/personalwebsite/master/images/prsi.png" style="width:100%"><figcaption>Relative Strength Index</figcaption></figure><br><br>
+              <figure><img src="https://raw.githubusercontent.com/abadari3/personalwebsite/master/images/pwr.png" style="width:100%"><figcaption>Larry WIlliams’ R%</figcaption></figure><br><br>
+              <figure><img src="https://raw.githubusercontent.com/abadari3/personalwebsite/master/images/pado.png" style="width:100%"><figcaption>Accumulation/Distribution Oscillators</figcaption></figure><br><br>
+              <figure><img src="https://raw.githubusercontent.com/abadari3/personalwebsite/master/images/pcci.png" style="width:100%"><figcaption>Commodity Channel Index</figcaption></figure>
+
+
+              <br><br>
+
+              For the MLP, we can split up our data by doing a 80:20 split of training/testing data. Therefore for as much data as want to use (as many days as we want), we will be using the first 80% to train our model from the predicted technical indicators, and then test our model on the remaining 20% of the data. Our MLP has the inputs as the 10 indicators, and outputs the corresponding stock price. We can train our model in two ways: we can train our model with real indicator values and real close values to help predict stock price, or we can train our model with predicted data from the SVR. <br><br>
+
+              On one hand, training with the real data allows us to think of our Indicators to Price Neural Network as a blackbox, and having been trained for real data. However, this may train the model well for perfectly accurate technical indicator data, but the model might fall apart when using our estimated values from the SVR. On the other hand, training with the predicted indicator data makes the neural network more robust to the RBF error noise. One possibility we can do is to train the model on a portion of real technical indicator data, and then train the model on a portion of simulated indicator data as well. <br><br>
+
+              When it comes to evaluating effectiveness of our model, we can use our model to independently predict every day/week of the 2020 year, and then take the average RMSE. We could then compare this value to what we would have gotten with an SVR instead, and are hoping to have a significant improvement.
+            </div>
+
+            </p>
+          <hr>
+        </div>
+
+        <button class="collapsible" id="collapsible-button-4" onclick="toggleCollapsibleSectionWithAnimation.call(this)"><h3>Discussion</h3></button>
+        <div class="collapsible-content" id="collapsible-section-4">
+          <p>
+            We are exploring the predictive nature of our SVR (support vector regression) and MLP (multilayer perceptron) approach in efforts to better determine a specific stock’s price given technical indicators. Ideally, this will reduce the risk of investing and offer an accurate estimate of a stock’s performance to the benefit of investors. Our approach takes the technical indicators described in the method section for a stock for a series of days and applies them to our RBF model of a SVR to predict the technical indicators on the next business week. We feed these predicted indicators into our MLP which uses weights for each inputted value to output a predicted end of day stock price for the coming week. Since our approach disregards the importance of news reports and media coverage, our algorithm will fail to predict changes related to a company’s media presence. To improve our approach, accounting for the semantics of articles written about the company we are predicting stock prices for would be a great way to prevent consumer bias from becoming an external variable. <br><br>
+
+            In this Midterm Update, we set up the Phase 1 of the following Model, which includes setting up the technical indicators from stock data and the SVR's to estimate future technical indicator prices. Next time, we wish to use our values from the SVR in order to train an Artificial Neural Network to match indicator values and final closing stock price. Although we do not expect any significant accuracy, we do wish to compare the performance with the Neural Network to a simple SVR, to determine whether the model we are constructing is better than using a simple SVR.Some things to keep in mind for the final update is to perform some kind of parameter optimization for not only the SVR, but also for the technical indicators and for the range of dates from the dataset as well.
+          </p>
+          <hr>
+        </div>
+
+      </section>
+    </div>
+    <script>
+        var metas = document.getElementsByTagName('meta');
+        var i;
+        if (navigator.userAgent.match(/iPhone/i)) {
+          for (i=0; i<metas.length; i++) {
+            if (metas[i].name == "viewport") {
+              metas[i].content = "width=device-width, minimum-scale=1.0, maximum-scale=1.0";
+            }
+          }
+          document.addEventListener("gesturestart", gestureStart, false);
+        }
+        function gestureStart() {
+          for (i=0; i<metas.length; i++) {
+            if (metas[i].name == "viewport") {
+              metas[i].content = "width=device-width, minimum-scale=0.25, maximum-scale=1.6";
+            }
+          }
+        }
+    
+        function toggleCollapsibleSectionWithAnimation() {
+          this.classList.toggle("collapsible-active");
+          var buttonId = this.id;
+          var sectionId = buttonId.replace("button","section");
+          var content = document.getElementById(sectionId);
+          var mHeight = window.getComputedStyle(content).maxHeight;
+          if (mHeight !== "0px"){
+            content.style.maxHeight = "0px";
+          } else {
+            content.style.maxHeight = "100%";
+          }
+        }
+    </script>
+    
+  </body>
+</html>

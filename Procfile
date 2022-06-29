@@ -1,1 +1,1 @@
-web: bin/go-getting-started
+web: gunicorn app:app
