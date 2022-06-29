@@ -4,77 +4,74 @@ app = Flask(__name__)
 
 @app.route('/')
 def index():
-    return redirect("https://drive.google.com/file/d/1YogXeBBbN4ekN8XXDONJ6iwOhCXTGYN_/view?usp=sharing")
+    return redirect("https://drive.google.com/file/d/1aURG6o-SkLhuz0CLBdQGRtD37HSqsmuB/view?usp=sharing")
     # return render_template('index.html')
 
-@app.route('/aboutme')
-def about():
-    return render_template('about.html')
 
+@app.route('/transcript')
+def transcript():
+    return redirect("https://drive.google.com/file/d/1w0Vke7WA5_LV6SVrq2STEg3X_TT_VUbB/view?usp=sharing")
+
+# TEMPORARY, until google links the correct page when you search up my name.
 @app.route('/courses')
 def courses():
-    return render_template('courses.html')
+    return transcript()
+    # return render_template('courses.html')
+    
+@app.route('/aboutme')
+def about():
+    return index()
+    # return render_template('about.html')
 
 @app.route('/resume')
 def resume():
-    return render_template('resume.html')
+    return index()
+    # return render_template('resume.html')
     
 @app.route('/projects')
 def projects():
-    return render_template('projects.html')
+    return index()
+    # return render_template('projects.html')
 
-@app.route('/projects/dashcam')
+# Projects.
+@app.route('/dashcam')
 def cv():
     return render_template('dashcam.html')
 
-@app.route('/projects/dashcamproposal')
+@app.route('/dashcamproposal')
 def cvprop():
     return render_template('dashcamproposal.html')
 
-@app.route('/projects/dashcammidterm')
+@app.route('/dashcammidterm')
 def cvmid():
     return render_template('dashcammidterm.html')
 
-@app.route('/projects/dashcamfinal')
+@app.route('/dashcamfinal')
 def cvfin():
     return render_template('dashcamfinal.html')
 
-@app.route('/projects/stock')
+@app.route('/stock')
 def ml():
     return render_template('stock.html')
 
-@app.route('/projects/stockprop')
+@app.route('/stockprop')
 def mlprop():
     return render_template('stockprop.html')
 
-@app.route('/projects/stockmidterm')
+@app.route('/stockmidterm')
 def mlmid():
     return render_template('stockmidterm.html')
 
-@app.route('/projects/stockfinal')
+@app.route('/stockfinal')
 def mlfin():
     return render_template('stockfinal.html')
 
-@app.route('/rpi')
-def raspberrypi():
-    return render_template('raspberrypi.html')
-
 @app.errorhandler(404)
 def page_not_found(e):
-    return render_template('404.html'), 404
+    return index()
+    # return render_template('404.html'), 404
 
-# TEMPORARY, until google links the correct page when you search up my name.
-@app.route('/home')
-def home():
-    return redirect('/')
-
-@app.route('/beta')
-def beta():
-    return redirect('/')
-
-@app.route('/projects/stockpredict')
-def remove():
-    return redirect('/projects/stock')
 
 if __name__ == '__main__':
-    app.run(debug = True)
+    app.run(debug = False)
+    # app.run(host = "0.0.0.0", debug = True)
