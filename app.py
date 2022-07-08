@@ -20,7 +20,6 @@ def courses():
     
 @app.route('/jellyfin')
 def jellyfin():
-    # return render_template('jellyfin.html')
     return redirect("http://win.anandabadari.com:8096/")
 
 @app.route('/aboutme')
