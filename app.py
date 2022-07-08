@@ -18,6 +18,10 @@ def courses():
     return transcript()
     # return render_template('courses.html')
     
+@app.route('/jellyfin')
+def jellyfin():
+    return render_template('jellyfin.html')
+
 @app.route('/aboutme')
 def about():
     return index()
@@ -73,5 +77,5 @@ def page_not_found(e):
 
 
 if __name__ == '__main__':
-    app.run(debug = False)
-    # app.run(host = "0.0.0.0", debug = True)
+    # app.run(debug = False)
+    app.run(host = "0.0.0.0", debug = True)
