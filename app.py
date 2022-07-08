@@ -20,7 +20,7 @@ def courses():
     
 @app.route('/jellyfin')
 def jellyfin():
-    return redirect("http://win.anandabadari.com:8096/")
+    return redirect("http://win.anandabadari.com/")
 
 @app.route('/aboutme')
 def about():
