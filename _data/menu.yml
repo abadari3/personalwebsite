@@ -1,0 +1,26 @@
+entries:
+  - title: movies
+    post_list:
+      category: movie
+      limit: 5
+      show_more: true
+      show_more_text: See more posts...
+      show_more_url: movie-archive.html
+
+  - title: recipes
+    post_list:
+      category: recipe
+      limit: 5
+      show_more: true
+      show_more_text: See more posts...
+      show_more_url: recipe-archive.html
+
+
+  # - title: other
+  #   entries:
+  #     - title: lastfm for music
+  #       url: https://www.last.fm/user/abadari3
+  #     - title: letterboxd for movies/tv
+  #       url: https://letterboxd.com/abadari/
+  #     - title: goodreads for books
+  #       url: https://www.goodreads.com/user/show/157983630-ananda
