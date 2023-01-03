@@ -1,26 +1,55 @@
+# For documentation on this file, see:
+# https://github.com/riggraz/no-style-please#customize-the-menu
+
 entries:
-  - title: movies
-    post_list:
-      category: movie
-      limit: 5
-      show_more: true
-      show_more_text: See more posts...
-      show_more_url: movie-archive.html
+  - title: info
+    entries:
+      - title: Ananda Theertha Badari
+      - title: (404) 528-9292
+      - title: ananda.t.badari@gmail.com
+        url: mailto:/ananda.t.badari@gmail.com
+      - title: github
+        url: https://github.com/abadari3/
+      - title: linkedin
+        url: https://www.linkedin.com/in/anandabadari/ 
+  - title: full resume and transcript
+    entries: 
+      - title: resume
+        url: full-resume
+      - title: transcript
+        url: full-transcript
 
-  - title: recipes
-    post_list:
-      category: recipe
-      limit: 5
-      show_more: true
-      show_more_text: See more posts...
-      show_more_url: recipe-archive.html
+  - title: resume and transcript pdfs
+    entries: 
+      - title: resume.pdf
+        url: resume
+      - title: transcript.pdf
+        url: transcript
 
-
-  # - title: other
-  #   entries:
-  #     - title: lastfm for music
-  #       url: https://www.last.fm/user/abadari3
-  #     - title: letterboxd for movies/tv
-  #       url: https://letterboxd.com/abadari/
-  #     - title: goodreads for books
-  #       url: https://www.goodreads.com/user/show/157983630-ananda
+  - title: research
+    entries: 
+      - title: Breast Tumor Classification on Histopathologic Slides
+        entries: 
+        - title: description
+        - title: paper
+          url: resume
+      - title: Weather and Climate Prediction using Machine Learning
+        entries: 
+        - title: description
+        - title: paper
+          url: resume
+      - title: Overview of Bitcoin and Ethereum White-Papers and Forks
+        entries: 
+        - title: description
+        - title: paper
+          url: resume
+      - title: Speed Detection from DashCam Video
+        entries: 
+        - title: description
+        - title: paper
+          url: resume
+      - title: Short Term Stock Market Prediction
+        entries: 
+        - title: description
+        - title: paper
+          url: resume

@@ -2,17 +2,18 @@
 # 'bundle exec jekyll serve'
 
 # title: Ananda's 
-title: idek
+title: Ananda Badari
 author: Ananda Badari
 email: badari.ananda@gmail.com
-description: Portfolio of Ananda Badari
-url: "https://blog.anandabadari.com/"
+
+description: <img src="assets/me.png" style="min-width:150px;max-width:40%;border-radius:50%;"><blockquote style="font-style:normal">I am currently working on my Masters in Computer Science, specializing in Machine Learning. I graduated with my Bachelors in Computer Science on Dec. 2021, and my Bachelors in Mathematics on May 2022.</blockquote>
+url: "https://www.anandabadari.com/"
 baseurl: ""
 github_username:  abadari3
 permalink: /:slug.html
 future: true
 
-# favicon: "logo.png" # name+extension of favicon (which must be put on the root folder)
+favicon: "me.png" # name+extension of favicon (which must be put on the root folder)
 
 # Build settings
 remote_theme: riggraz/no-style-please
@@ -21,10 +22,10 @@ plugins:
   - jekyll-target-blank
 
 theme_config:
-  back_home_text: ".."
+  back_home_text: <img src="assets/me.png" style="width:50px;border-radius:50%;float:left"><br><br><br>
   date_format: " "
   appearance: "auto"
-  show_description: false
+  show_description: true
 
 sass:
   style: :compressed
