@@ -12,44 +12,9 @@ entries:
         url: https://github.com/abadari3/
       - title: linkedin
         url: https://www.linkedin.com/in/anandabadari/ 
-  - title: full resume and transcript
-    entries: 
-      - title: resume
-        url: full-resume
-      - title: transcript
-        url: full-transcript
-
   - title: resume and transcript pdfs
     entries: 
       - title: resume.pdf
         url: resume
       - title: transcript.pdf
         url: transcript
-
-  - title: research
-    entries: 
-      - title: Breast Tumor Classification on Histopathologic Slides
-        entries: 
-        - title: description
-        - title: paper
-          url: resume
-      - title: Weather and Climate Prediction using Machine Learning
-        entries: 
-        - title: description
-        - title: paper
-          url: resume
-      - title: Overview of Bitcoin and Ethereum White-Papers and Forks
-        entries: 
-        - title: description
-        - title: paper
-          url: resume
-      - title: Speed Detection from DashCam Video
-        entries: 
-        - title: description
-        - title: paper
-          url: resume
-      - title: Short Term Stock Market Prediction
-        entries: 
-        - title: description
-        - title: paper
-          url: resume
